@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Work, education and leadership experience.">
+  <title>Experience | Mariana Neri Sapori</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat Regular (400) for body, SemiBold (600) for subheadings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (RoxboroughCF is loaded inside it with @font-face) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is on, before the page paints, so fade-in elements
+       start hidden without a flicker (without JS they stay visible) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION — same on every page; the current page's link
+       gets aria-current="page". Collapses to a hamburger on mobile.
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Main navigation">
+      <a href="index.html" class="navbar__logo">Mariana Neri Sapori</a>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html" aria-current="page">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: only visible on mobile -->
+      <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         EXPERIENCE — cream background: skill chips, then Work and
+         Education side by side, then Leadership across the width
+         ===================================================== -->
+    <section id="experience" class="section section--cream page-top has-pattern">
+      <div class="container">
+        <p class="eyebrow reveal">Where I've Been</p>
+        <h1 class="headline headline--lg reveal">Experience</h1>
+        <a href="Mariana-Neri-Sapori-Resume.pdf" class="btn btn--brown reveal" target="_blank" rel="noopener">
+          View resume <i data-lucide="external-link"></i>
+        </a>
+
+        <!-- Skill filter: clicking a chip highlights and opens matching entries.
+             Each entry lists its skills in data-skills. -->
+        <div class="skill-filter reveal">
+          <p class="skill-filter__label">Click a skill to see where I've used it &middot; click any entry to read more</p>
+          <div class="skill-filter__chips" role="group" aria-label="Filter experience by skill">
+            <button class="chip" data-skill="communication" aria-pressed="false">Communication</button>
+            <button class="chip" data-skill="data" aria-pressed="false">Data Analysis</button>
+            <button class="chip" data-skill="events" aria-pressed="false">Event Planning</button>
+            <button class="chip" data-skill="teaching" aria-pressed="false">Teaching</button>
+            <button class="chip" data-skill="writing" aria-pressed="false">Writing</button>
+            <button class="chip" data-skill="social" aria-pressed="false">Social Media</button>
+            <button class="chip" data-skill="excel" aria-pressed="false">Excel</button>
+            <button class="chip" data-skill="javascript" aria-pressed="false">JavaScript</button>
+            <button class="chip" data-skill="databases" aria-pressed="false">Databases</button>
+            <button class="chip" data-skill="research" aria-pressed="false">Research</button>
+          </div>
+          <p class="skill-filter__status" aria-live="polite"></p>
+        </div>
+
+        <div class="timeline-grid">
+          <!-- Work history -->
+          <div class="timeline reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="briefcase"></i> Work</h2>
+
+            <details class="timeline__item" data-skills="communication data events">
+              <summary>
+                <span class="timeline__date">August 2026 — Present</span>
+                <span class="timeline__heading subheading">Outreach Intern</span>
+                <span class="timeline__place">Florida State University Information Technology Services, Tallahassee, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Staffed ITS outreach booths at 6+ campus events, including Market Wednesday and New Student Orientation, engaging 300+ students on available tech resources like the Software Portal and IT Help Desk.</li>
+                  <li>Tracked student engagement at outreach events to help the Integrated Communications team identify which ITS services generated the most interest.</li>
+                  <li>Partnered with the Dean of Students Office and Student Government to secure tabling space at 3 major campus-wide events.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="excel writing communication">
+              <summary>
+                <span class="timeline__date">June 2023 — August 2024</span>
+                <span class="timeline__heading subheading">Psychiatrist’s Office Intern</span>
+                <span class="timeline__place">Office of Dr. Priti Kothari, Child, Adolescent, and Adult Psychiatrist, Boca Raton, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Organized patient scheduling, intake, and front-desk operations (calls, check-ins) using Excel to support efficient office workflows.</li>
+                  <li>Authored mental health blog posts for the practice website to educate patients and families.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="data research">
+              <summary>
+                <span class="timeline__date">March 2023</span>
+                <span class="timeline__heading subheading">Occupational Safety and Healthcare Department Intern</span>
+                <span class="timeline__place">Healthcare Municipality of Montes Claros, São Paulo, Brazil</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Compiled and organized patient development data to support researchers’ study of workers’ conditions in the hospital environment.</li>
+                  <li>Participated in therapy group activities and administrative tasks to promote improved healthcare.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="javascript teaching">
+              <summary>
+                <span class="timeline__date">August 2022 — September 2023</span>
+                <span class="timeline__heading subheading">Code Sensei</span>
+                <span class="timeline__place">Code Ninjas, Coral Springs, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Taught coding and problem-solving skills, including Scratch and JavaScript, to children in a supportive classroom environment.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Education history -->
+          <div class="timeline reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="graduation-cap"></i> Education</h2>
+
+            <details class="timeline__item" data-skills="databases data">
+              <summary>
+                <span class="timeline__date">2024 — Present</span>
+                <span class="timeline__heading subheading">Florida State University</span>
+                <span class="timeline__place">Bachelor of Science in Information Technology &middot; Expected Graduation: May 2028 &middot; Tallahassee, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Major: Information, Communication &amp; Technology (ICT)</li>
+                  <li>Minors: Data Analytics and STEM Entrepreneurship</li>
+                  <li>GPA: 3.6</li>
+                  <li>Honors: Vires Scholarship recipient; President’s List (Fall 2025 &amp; Spring 2026)</li>
+                  <li>Relevant coursework: Information Systems &amp; Services, Database Systems, and Digital Media in Society, covering system management, databases, networked servers, and digital communication strategy.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="writing">
+              <summary>
+                <span class="timeline__date">2020 — 2024</span>
+                <span class="timeline__heading subheading">Marjory Stoneman Douglas High School</span>
+                <span class="timeline__place">High School &middot; Parkland, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>High School Diploma; ACT score: 31</li>
+                  <li>Honors: AP Scholar; Florida Scholastic Press Association Honorable Mention</li>
+                  <li>Award for the climate change opinion article “Agricultural Practices Unnecessarily Accelerate Climate Change.”</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Awards: always visible (not tucked inside an entry), full width -->
+          <div class="timeline timeline--wide reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
+            <ul class="awards">
+              <li><strong>Vires Scholarship</strong> · Florida State University</li>
+              <li><strong>President’s List</strong> · Fall 2025 &amp; Spring 2026, Florida State University</li>
+              <li><strong>AP Scholar</strong> · Marjory Stoneman Douglas High School</li>
+              <li><strong>Honorable Mention</strong> · Florida Scholastic Press Association</li>
+              <li><strong>Opinion Writing Award</strong> · “Agricultural Practices Unnecessarily Accelerate Climate Change”</li>
+            </ul>
+          </div>
+
+          <!-- Leadership: spans the full width under Work and Education -->
+          <div class="timeline timeline--wide reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="users"></i> Leadership</h2>
+
+            <details class="timeline__item" data-skills="communication events">
+              <summary>
+                <span class="timeline__date">January 2026 — Present</span>
+                <span class="timeline__heading subheading">CCI Student Leadership Council</span>
+                <span class="timeline__place">Member &middot; Florida State University</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Help bridge communication between students, the Dean’s office, and alumni across the College of Communication &amp; Information.</li>
+                  <li>Participate in workshops and networking events that connect students across CCI’s schools and majors and build professional development opportunities for everyone in the college.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="social data">
+              <summary>
+                <span class="timeline__date">January 2026 — May 2026</span>
+                <span class="timeline__heading subheading">IT Leadership Program</span>
+                <span class="timeline__place">Social Media Marketing Co-Lead &middot; Florida State University</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Managed three university-affiliated Instagram accounts for campus events and student organizations.</li>
+                  <li>Created digital flyers and content while maintaining consistent branding across platforms.</li>
+                  <li>Analyzed engagement metrics to optimize reach and increase student participation.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="communication">
+              <summary>
+                <span class="timeline__date">August 2025 — Present</span>
+                <span class="timeline__heading subheading">WISE (Women in IT/ICT Sharing Experiences)</span>
+                <span class="timeline__place">Vice President &middot; Florida State University</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Participate in professional development events, including guest speaker series and resume workshops.</li>
+                  <li>Engage in peer mentoring to support women in IT in a male-dominated field.</li>
+                  <li>Network with local business and technology leaders through mentorship opportunities.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" data-skills="teaching events">
+              <summary>
+                <span class="timeline__date">August 2025 — Present</span>
+                <span class="timeline__heading subheading">Connecting Girls to STEM</span>
+                <span class="timeline__place">Secretary &middot; Florida State University</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Engage K-12 students through hands-on STEM activities and coding workshops at local schools.</li>
+                  <li>Support event planning and execution to promote interest in science and technology among youth.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Small footer bar, same on every page -->
+  <footer class="section--brown site-footer">
+    <p class="container">
+      &copy; <span id="year"></span> Mariana Neri Sapori. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Lucide icons from CDN: version pinned, and the integrity hash makes the
+       browser refuse the file if it was ever altered on the CDN -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge" crossorigin="anonymous"></script>
+  <!-- Site behaviour: menu, scroll animations, image placeholders -->
+  <script src="js/main.js"></script>
+</body>
+</html>

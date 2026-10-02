@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Resume and portfolio.">
+  <title>Mariana Neri Sapori | Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat Regular (400) for body, SemiBold (600) for subheadings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (RoxboroughCF is loaded inside it with @font-face) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is on, before the page paints, so fade-in elements
+       start hidden without a flicker (without JS they stay visible) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION — same on every page; the current page's link
+       gets aria-current="page". Collapses to a hamburger on mobile.
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Main navigation">
+      <a href="index.html" class="navbar__logo">Mariana Neri Sapori</a>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: only visible on mobile -->
+      <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         HOME / HERO — brown background, lavender headline,
+         two-column split: text left, photo right
+         ===================================================== -->
+    <section id="home" class="section section--brown hero has-pattern">
+      <div class="container split">
+        <div class="split__text reveal">
+          <!-- Typing effect: JS cycles through data-words -->
+          <p class="eyebrow">
+            <span class="sr-only">ICT Student</span>
+            <span class="typed" aria-hidden="true" data-words='["ICT Student", "Data Analysis", "Project Management", "Tech Outreach Intern"]'>ICT Student</span>
+          </p>
+          <h1 class="headline headline--lg">Mariana<br>Neri Sapori</h1>
+          <p class="lead">Welcome! I'm a junior at Florida State University.</p>
+          <p class="hero__about">At FSU, I'm studying Information, Communication &amp; Technology (ICT) and minoring in Data Analytics and STEM Entrepreneurship. Originally from São Paulo, Brazil, I'm bilingual in Portuguese and Spanish and passionate about bringing a global perspective to tech. I currently serve as an Outreach Intern at FSU Information Technology Services, where I help connect students with campus IT resources and initiatives, and I'm actively involved in leadership roles across the College of Communication &amp; Information as Vice President of Women in IT/ICT Sharing Experiences (WISE) and Secretary of Connecting Girls to STEM (CGS). What excites me most is finding creative ways to make information more accessible and engaging through data, design, and outreach.</p>
+          <div class="btn-row">
+            <a href="Mariana-Neri-Sapori-Resume.pdf" class="btn btn--lavender" target="_blank" rel="noopener">
+              View resume <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Photo with social links underneath -->
+        <div class="split__media reveal">
+          <!-- Headshot: images/portrait.webp (already has its own window frame) -->
+          <figure class="img-slot img-slot--framed" data-label="images/portrait.webp">
+            <img src="images/portrait.webp" alt="Portrait of Mariana Neri Sapori">
+          </figure>
+
+          <!-- Social links: email, GitHub, LinkedIn -->
+          <ul class="socials">
+            <li><a href="mailto:mariananerisapori@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a></li>
+            <li><a href="https://github.com/marisapori" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><i data-lucide="github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/marisapori/" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><i data-lucide="linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CAREER OBJECTIVE — the full-width lavender band
+         ===================================================== -->
+    <section id="objective" class="section section--lavender band">
+      <div class="container band__inner reveal">
+        <p class="eyebrow">Career Objective</p>
+        <blockquote class="band__quote">
+          “Looking ahead, I hope to grow into a role in <mark class="hl">data analysis</mark> or <mark class="hl">project management</mark>, where I can apply skills like Python, SQL, and data visualization to solve real-world problems and help teams carry projects from plan to finish. Along the way, I want to keep growing as a <mark class="hl">leader in tech spaces</mark> that are still working toward better representation.”
+        </blockquote>
+        <!-- Goal cards: a picture of each highlighted goal, plus proof it is already happening -->
+        <ul class="goals">
+          <li class="goal">
+            <svg class="goal__art" viewBox="0 0 120 80" aria-hidden="true">
+              <line x1="10" y1="72" x2="110" y2="72"/>
+              <rect class="goal__bar" x="18" y="48" width="14" height="24" rx="2"/>
+              <rect class="goal__bar" x="40" y="38" width="14" height="34" rx="2"/>
+              <rect class="goal__bar" x="62" y="44" width="14" height="28" rx="2"/>
+              <rect class="goal__bar" x="84" y="24" width="14" height="48" rx="2"/>
+              <polyline class="goal__line" points="20,36 46,26 68,30 92,10"/>
+              <circle class="goal__dot" cx="92" cy="10" r="3.5"/>
+            </svg>
+            <h2 class="subheading">Data Analysis</h2>
+            <p>Built a Python + SQL pipeline comparing 117 FSU courses to real job postings</p>
+          </li>
+          <li class="goal">
+            <svg class="goal__art" viewBox="0 0 120 80" aria-hidden="true">
+              <line x1="14" y1="6" x2="14" y2="74"/>
+              <line x1="14" y1="74" x2="112" y2="74"/>
+              <rect class="goal__task" x="20" y="10" width="40" height="11" rx="5.5"/>
+              <rect class="goal__task" x="38" y="27" width="46" height="11" rx="5.5"/>
+              <rect class="goal__task" x="62" y="44" width="34" height="11" rx="5.5"/>
+              <rect class="goal__task" x="80" y="61" width="28" height="9" rx="4.5"/>
+              <polyline class="goal__check" points="66,12 70,18 78,8"/>
+              <polyline class="goal__check" points="90,29 94,35 102,25"/>
+            </svg>
+            <h2 class="subheading">Project Management</h2>
+            <p>Coordinated outreach at 6+ campus events and secured space at 3 major ones</p>
+          </li>
+          <li class="goal">
+            <svg class="goal__art" viewBox="0 0 120 80" aria-hidden="true">
+              <line x1="34" y1="44" x2="60" y2="30"/>
+              <line x1="86" y1="44" x2="60" y2="30"/>
+              <circle cx="60" cy="20" r="9"/>
+              <path d="M44 52 a16 16 0 0 1 32 0"/>
+              <circle cx="26" cy="44" r="7"/>
+              <path d="M14 70 a12 12 0 0 1 24 0"/>
+              <circle cx="94" cy="44" r="7"/>
+              <path d="M82 70 a12 12 0 0 1 24 0"/>
+              <path class="goal__star" d="M60 60 l2.5 5 5.5 .8 -4 3.9 .9 5.5 -4.9 -2.6 -4.9 2.6 .9 -5.5 -4 -3.9 5.5 -.8z"/>
+            </svg>
+            <h2 class="subheading">Leadership in Tech</h2>
+            <p>Vice President of WISE and Secretary of Connecting Girls to STEM</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Small footer bar, same on every page -->
+  <footer class="section--brown site-footer">
+    <p class="container">
+      &copy; <span id="year"></span> Mariana Neri Sapori. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Lucide icons from CDN: version pinned, and the integrity hash makes the
+       browser refuse the file if it was ever altered on the CDN -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge" crossorigin="anonymous"></script>
+  <!-- Site behaviour: menu, scroll animations, image placeholders -->
+  <script src="js/main.js"></script>
+</body>
+</html>

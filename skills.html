@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Skills.">
+  <title>Skills | Mariana Neri Sapori</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat Regular (400) for body, SemiBold (600) for subheadings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (RoxboroughCF is loaded inside it with @font-face) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is on, before the page paints, so fade-in elements
+       start hidden without a flicker (without JS they stay visible) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION — same on every page; the current page's link
+       gets aria-current="page". Collapses to a hamburger on mobile.
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Main navigation">
+      <a href="index.html" class="navbar__logo">Mariana Neri Sapori</a>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html" aria-current="page">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: only visible on mobile -->
+      <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         SKILLS — cream background, split intro + skill cards
+         ===================================================== -->
+    <section id="skills" class="section section--cream page-top has-pattern">
+      <div class="container split split--reverse">
+        <div class="split__text reveal">
+          <p class="eyebrow">What I Do</p>
+          <h1 class="headline headline--lg">Skills</h1>
+          <p>I like working where data and people meet. On the technical side, I use Python, SQL, and tools like Tableau and Excel to organize information and turn it into something people can act on. On the people side, teaching kids to code, mentoring peers, and running campus outreach have taught me to explain technical ideas clearly and keep a team moving toward its goal. Flip a card below to see what's in my toolkit.</p>
+          <!-- Key for the dots on the back of the Technical and Tools cards -->
+          <p class="level-key" aria-hidden="true">
+            <span><span class="level__dots"><i class="is-on"></i><i></i><i></i></span> Beginner</span>
+            <span><span class="level__dots"><i class="is-on"></i><i class="is-on"></i><i></i></span> Intermediate</span>
+            <span><span class="level__dots"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span> Advanced</span>
+          </p>
+        </div>
+
+        <!-- Photo: images/skills.webp (already has its own window frame) -->
+        <figure class="split__media img-slot img-slot--framed reveal" data-label="images/skills.webp">
+          <img src="images/skills.webp" alt="Helping a student build a Scratch coding project in a school computer lab">
+        </figure>
+      </div>
+
+      <!-- Flip cards: click a card (or its button) to see the skills on the back.
+           Copy an <article> block to add a group; add an <li> to add a skill
+           and update the "N skills" count on the front. -->
+      <div class="container cards">
+        <article class="flip-card reveal">
+          <div class="flip-card__inner">
+            <!-- Front: what the group is -->
+            <div class="flip-card__face flip-card__face--front">
+              <i data-lucide="code" class="card__icon"></i>
+              <h2 class="subheading">Technical</h2>
+              <p class="flip-card__count">5 skills</p>
+              <button class="flip-card__hint" type="button">Flip me <i data-lucide="rotate-cw"></i></button>
+            </div>
+            <!-- Back: the skills themselves -->
+            <div class="flip-card__face flip-card__face--back">
+              <h2 class="subheading">Technical</h2>
+              <ul class="skill-list skill-list--levels">
+                <li>
+                  <span>Python</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>SQL</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>HTML &amp; CSS</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>JavaScript</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>C++</span>
+                  <span class="level" title="Beginner"><span class="sr-only">Beginner</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span></span>
+                </li>
+              </ul>
+              <button class="flip-card__hint" type="button">Flip back <i data-lucide="rotate-ccw"></i></button>
+            </div>
+          </div>
+        </article>
+        <article class="flip-card reveal">
+          <div class="flip-card__inner">
+            <!-- Front: what the group is -->
+            <div class="flip-card__face flip-card__face--front">
+              <i data-lucide="wrench" class="card__icon"></i>
+              <h2 class="subheading">Tools &amp; Platforms</h2>
+              <p class="flip-card__count">8 skills</p>
+              <button class="flip-card__hint" type="button">Flip me <i data-lucide="rotate-cw"></i></button>
+            </div>
+            <!-- Back: the skills themselves -->
+            <div class="flip-card__face flip-card__face--back">
+              <h2 class="subheading">Tools &amp; Platforms</h2>
+              <ul class="skill-list skill-list--levels">
+                <li>
+                  <span>Microsoft Office</span>
+                  <span class="level" title="Advanced"><span class="sr-only">Advanced</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></span>
+                </li>
+                <li>
+                  <span>Excel</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>Streamlit</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>Tableau</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>Photoshop</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>AI Tools</span>
+                  <span class="level" title="Intermediate"><span class="sr-only">Intermediate</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>Linux</span>
+                  <span class="level" title="Beginner"><span class="sr-only">Beginner</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span></span>
+                </li>
+                <li>
+                  <span>Unix</span>
+                  <span class="level" title="Beginner"><span class="sr-only">Beginner</span><span class="level__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span></span>
+                </li>
+              </ul>
+              <button class="flip-card__hint" type="button">Flip back <i data-lucide="rotate-ccw"></i></button>
+            </div>
+          </div>
+        </article>
+        <article class="flip-card reveal">
+          <div class="flip-card__inner">
+            <!-- Front: what the group is -->
+            <div class="flip-card__face flip-card__face--front">
+              <i data-lucide="users" class="card__icon"></i>
+              <h2 class="subheading">Soft Skills</h2>
+              <p class="flip-card__count">5 skills</p>
+              <button class="flip-card__hint" type="button">Flip me <i data-lucide="rotate-cw"></i></button>
+            </div>
+            <!-- Back: the skills themselves -->
+            <div class="flip-card__face flip-card__face--back">
+              <h2 class="subheading">Soft Skills</h2>
+              <ul class="skill-list">
+                <li>Bilingual: Portuguese &amp; Spanish</li>
+                <li>Public Speaking</li>
+                <li>Peer Mentoring</li>
+                <li>Leadership &amp; Team Management</li>
+                <li>Community Outreach</li>
+              </ul>
+              <button class="flip-card__hint" type="button">Flip back <i data-lucide="rotate-ccw"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Small footer bar, same on every page -->
+  <footer class="section--brown site-footer">
+    <p class="container">
+      &copy; <span id="year"></span> Mariana Neri Sapori. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Lucide icons from CDN: version pinned, and the integrity hash makes the
+       browser refuse the file if it was ever altered on the CDN -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge" crossorigin="anonymous"></script>
+  <!-- Site behaviour: menu, scroll animations, image placeholders -->
+  <script src="js/main.js"></script>
+</body>
+</html>
