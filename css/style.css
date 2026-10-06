@@ -517,6 +517,22 @@ p {
   opacity: 0.8;
 }
 
+/* "See the project" link on the Data Analysis card */
+.goal__link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.goal__link:hover,
+.goal__link:focus-visible {
+  border-bottom-color: var(--lavender);
+}
+
 .goal__art {
   width: 7.5rem;
   height: 5rem;
