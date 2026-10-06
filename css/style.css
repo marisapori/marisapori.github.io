@@ -937,6 +937,19 @@ p {
 }
 
 /* Project entry: screenshot and link buttons under the bullet list */
+/* Small labels that split a project entry into the rubric's parts */
+.project-label {
+  margin: 1rem 0 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.project-label:first-child {
+  margin-top: 0;
+}
+
 /* Lavender mat around the screenshot; lifts on hover like the goal cards */
 .project-shot {
   display: block;
