@@ -18,6 +18,7 @@ Where each piece of text lives, so it's quick to find and change.
 
 ## Experience — `experience.html`
 - **Download resume** button under the headline
+- Entries start open (`<details open>`); visitors can close them
 - **Skill chips**: `.skill-filter__chips` (each chip's `data-skill` matches
   the words in each entry's `data-skills`)
 - **Work**: Outreach Intern · Psychiatrist's Office Intern ·
@@ -27,9 +28,8 @@ Where each piece of text lives, so it's quick to find and change.
 
 ## Education — `education.html`
 - **Intro line** under the headline (major + minors)
+- **Awards & Recognition**: always-visible list, at the top
 - **Education**: Florida State University · Marjory Stoneman Douglas High School
-  (entries start open)
-- **Awards & Recognition**: always-visible list
 
 ## Projects — `projects.html` (career portfolio)
 - One `<article class="project">` per project: screenshot, date/team line,

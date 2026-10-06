@@ -152,7 +152,9 @@ function setFilter(skill) {
   entries.forEach((entry) => {
     const isMatch = skill !== null && entry.dataset.skills.split(' ').includes(skill);
     entry.classList.toggle('is-match', isMatch);
-    entry.open = isMatch;
+    // Entries start open. While filtering, only the matches stay open;
+    // clearing the filter opens everything again.
+    entry.open = skill === null || isMatch;
     if (isMatch) matches++;
   });
 
