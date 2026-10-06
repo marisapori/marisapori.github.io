@@ -181,6 +181,37 @@
             </details>
           </div>
 
+          <!-- Projects: full width, with a screenshot and links inside the entry -->
+          <div class="timeline timeline--wide reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="bar-chart-3"></i> Projects</h2>
+
+            <details class="timeline__item" data-skills="data databases research">
+              <summary>
+                <span class="timeline__date">2026</span>
+                <span class="timeline__heading subheading">CCI Course-to-Career Skill Gap Dashboard</span>
+                <span class="timeline__place">Python &middot; SQL &middot; SQLite &middot; Streamlit &middot; REST API</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Compared all 117 FSU College of Communication &amp; Information courses against 1,120 entry-level job postings to find skills employers ask for that the curriculum rarely names.</li>
+                  <li>Built a Python pipeline that pulls postings from the Adzuna API, tags 32 skills, and loads everything into a SQLite database queried with SQL.</li>
+                  <li>Published an interactive Streamlit dashboard; one key finding is that AI was the most-requested skill, yet only one CCI course names it.</li>
+                </ul>
+                <img class="project-shot" src="images/skill-gap-dashboard.webp" width="1000" height="530"
+                     alt="Screenshot of the skill gap dashboard showing summary numbers and key findings cards" loading="lazy">
+                <div class="btn-row project-links">
+                  <a href="https://course-to-career-skill-gap.streamlit.app" class="btn btn--brown" target="_blank" rel="noopener">
+                    Live dashboard <i data-lucide="external-link"></i>
+                  </a>
+                  <a href="https://github.com/marisapori/course-to-career-skill-gap" class="btn btn--brown" target="_blank" rel="noopener">
+                    Code on GitHub <i data-lucide="external-link"></i>
+                  </a>
+                </div>
+              </div>
+            </details>
+          </div>
+
           <!-- Awards: always visible (not tucked inside an entry), full width -->
           <div class="timeline timeline--wide reveal">
             <h2 class="timeline__title subheading"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
