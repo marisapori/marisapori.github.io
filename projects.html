@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mariana Neri Sapori — career portfolio: projects with goals, scope and my role.">
+  <title>Projects | Mariana Neri Sapori</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat Regular (400) for body, SemiBold (600) for subheadings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (RoxboroughCF is loaded inside it with @font-face) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is on, before the page paints, so fade-in elements
+       start hidden without a flicker (without JS they stay visible) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION — same on every page; the current page's link
+       gets aria-current="page". Collapses to a hamburger on mobile.
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Main navigation">
+      <a href="index.html" class="navbar__logo">Mariana Neri Sapori</a>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: only visible on mobile -->
+      <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         PROJECTS — career portfolio. Each project is a .project card:
+         screenshot on one side; goals, scope and role on the other.
+         Copy an <article class="project"> block to add a project.
+         ===================================================== -->
+    <section id="projects" class="section section--cream page-top has-pattern">
+      <div class="container">
+        <p class="eyebrow reveal">What I've Built</p>
+        <h1 class="headline headline--lg reveal">Projects</h1>
+        <p class="page-intro reveal">A closer look at my projects: what each one set out to do, how big it was, and what I did.</p>
+
+        <article class="project reveal">
+          <a class="project-shot" href="https://course-to-career-skill-gap.streamlit.app" target="_blank" rel="noopener">
+            <img src="images/skill-gap-dashboard.webp" width="1000" height="530"
+                 alt="Screenshot of the skill gap dashboard showing summary numbers and key findings cards" loading="lazy">
+          </a>
+
+          <div class="project__text">
+            <p class="timeline__date">2026 &middot; Solo project</p>
+            <h2 class="project__title subheading">CCI Course-to-Career Skill Gap Dashboard</h2>
+            <ul class="project__tags" aria-label="Tools used">
+              <li>Python</li><li>SQL</li><li>SQLite</li><li>Streamlit</li><li>REST API</li>
+            </ul>
+
+            <h3 class="project-label">Goals &amp; scope</h3>
+            <ul class="timeline__list">
+              <li>Goal: find out whether FSU's College of Communication &amp; Information (CCI) teaches the skills entry-level employers actually ask for.</li>
+              <li>Scope: all 117 CCI undergraduate courses compared against 1,120 job postings from the Adzuna API, across 4 career tracks and 32 skills.</li>
+              <li>Key finding: AI was the most-requested skill, yet only one CCI course names it.</li>
+            </ul>
+
+            <h3 class="project-label">My role</h3>
+            <ul class="timeline__list">
+              <li>Solo project: I came up with the research question, chose the data sources, the job search terms and the skills list, and checked the results for accuracy.</li>
+              <li>Built the Python + SQL pipeline and Streamlit dashboard with the help of AI coding tools, directing the design and verifying every finding against the data.</li>
+              <li>Decided what was safe to publish, sharing only a trimmed database without the job posting text.</li>
+            </ul>
+
+            <div class="btn-row project-links">
+              <a href="https://course-to-career-skill-gap.streamlit.app" class="btn btn--brown" target="_blank" rel="noopener">
+                Live dashboard <i data-lucide="external-link"></i>
+              </a>
+              <a href="https://github.com/marisapori/course-to-career-skill-gap" class="btn btn--brown" target="_blank" rel="noopener">
+                Code on GitHub <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Small footer bar, same on every page -->
+  <footer class="section--brown site-footer">
+    <p class="container">
+      &copy; <span id="year"></span> Mariana Neri Sapori. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Lucide icons from CDN: version pinned, and the integrity hash makes the
+       browser refuse the file if it was ever altered on the CDN -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge" crossorigin="anonymous"></script>
+  <!-- Site behaviour: menu, scroll animations, image placeholders -->
+  <script src="js/main.js"></script>
+</body>
+</html>

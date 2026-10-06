@@ -8,7 +8,9 @@ A responsive personal resume site built with plain HTML, CSS and JavaScript.
 resume-site/
 ├── index.html      Home: intro, typing label, headshot + social links, career objective
 ├── skills.html     Skills: flip cards with proficiency dots
-├── experience.html Experience: skill-filter chips, expandable Work / Education / Leadership
+├── experience.html Experience: skill-filter chips, expandable Work / Leadership
+├── education.html  Education: schools + Awards & Recognition
+├── projects.html   Projects (career portfolio): screenshot, goals & scope, my role
 ├── contact.html    Contact: animated chat-bubble conversation
 ├── css/style.css   All styling, organised in numbered sections
 ├── js/main.js      Menu, scroll fade-ins, typing label, skill chips, flip cards, chat
@@ -29,8 +31,9 @@ resume-site/
 - **Skills:** each card's back is a list; add an `<li>` and update the
   "N skills" count on the card's front. Proficiency = how many dots have `is-on`.
 - **Experience skill chips:** each entry lists its skills in `data-skills`.
+- **Projects:** copy an `<article class="project">` block in `projects.html`.
 - **Menu / footer:** they're repeated at the top and bottom of every page, so
-  change all four files when you edit them.
+  change all six pages when you edit them.
 - **Colours / fonts:** change the variables at the top of `css/style.css`.
 
 ## Preview locally

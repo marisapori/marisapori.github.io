@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Work, education and leadership experience.">
+  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Work and leadership experience.">
   <title>Experience | Mariana Neri Sapori</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -33,6 +33,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="experience.html" aria-current="page">Experience</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -47,7 +49,7 @@
 
     <!-- =====================================================
          EXPERIENCE — cream background: skill chips, then Work and
-         Education side by side, then Leadership across the width
+         Leadership side by side
          ===================================================== -->
     <section id="experience" class="section section--cream page-top has-pattern">
       <div class="container">
@@ -70,7 +72,6 @@
             <button class="chip" data-skill="social" aria-pressed="false">Social Media</button>
             <button class="chip" data-skill="excel" aria-pressed="false">Excel</button>
             <button class="chip" data-skill="javascript" aria-pressed="false">JavaScript</button>
-            <button class="chip" data-skill="databases" aria-pressed="false">Databases</button>
             <button class="chip" data-skill="research" aria-pressed="false">Research</button>
           </div>
           <p class="skill-filter__status" aria-live="polite"></p>
@@ -142,99 +143,8 @@
             </details>
           </div>
 
-          <!-- Education history -->
+          <!-- Leadership history -->
           <div class="timeline reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="graduation-cap"></i> Education</h2>
-
-            <details class="timeline__item" data-skills="databases data">
-              <summary>
-                <span class="timeline__date">2024 — Present</span>
-                <span class="timeline__heading subheading">Florida State University</span>
-                <span class="timeline__place">Bachelor of Science in Information Technology &middot; Expected Graduation: May 2028 &middot; Tallahassee, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Major: Information, Communication &amp; Technology (ICT)</li>
-                  <li>Minors: Data Analytics and STEM Entrepreneurship</li>
-                  <li>GPA: 3.6</li>
-                  <li>Honors: Vires Scholarship recipient; President’s List (Fall 2025 &amp; Spring 2026)</li>
-                  <li>Relevant coursework: Information Systems &amp; Services, Database Systems, and Digital Media in Society, covering system management, databases, networked servers, and digital communication strategy.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="timeline__item" data-skills="writing">
-              <summary>
-                <span class="timeline__date">2020 — 2024</span>
-                <span class="timeline__heading subheading">Marjory Stoneman Douglas High School</span>
-                <span class="timeline__place">High School &middot; Parkland, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>High School Diploma; ACT score: 31</li>
-                  <li>Honors: AP Scholar; Florida Scholastic Press Association Honorable Mention</li>
-                  <li>Award for the climate change opinion article “Agricultural Practices Unnecessarily Accelerate Climate Change.”</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-
-          <!-- Projects: full width, with a screenshot and links inside the entry -->
-          <div class="timeline timeline--wide reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="bar-chart-3"></i> Projects</h2>
-
-            <details class="timeline__item" data-skills="data databases research">
-              <summary>
-                <span class="timeline__date">2026</span>
-                <span class="timeline__heading subheading">CCI Course-to-Career Skill Gap Dashboard</span>
-                <span class="timeline__place">Python &middot; SQL &middot; SQLite &middot; Streamlit &middot; REST API</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <h3 class="project-label">Goals &amp; scope</h3>
-                <ul class="timeline__list">
-                  <li>Goal: find out whether FSU's College of Communication &amp; Information (CCI) teaches the skills entry-level employers actually ask for.</li>
-                  <li>Scope: all 117 CCI undergraduate courses compared against 1,120 job postings from the Adzuna API, across 4 career tracks and 32 skills.</li>
-                  <li>Key finding: AI was the most-requested skill, yet only one CCI course names it.</li>
-                </ul>
-                <h3 class="project-label">My role</h3>
-                <ul class="timeline__list">
-                  <li>Solo project: I came up with the research question, chose the data sources, the job search terms and the skills list, and checked the results for accuracy.</li>
-                  <li>Built the Python + SQL pipeline and Streamlit dashboard with the help of AI coding tools, directing the design and verifying every finding against the data.</li>
-                  <li>Decided what was safe to publish, sharing only a trimmed database without the job posting text.</li>
-                </ul>
-                <a class="project-shot" href="https://course-to-career-skill-gap.streamlit.app" target="_blank" rel="noopener">
-                  <img src="images/skill-gap-dashboard.webp" width="1000" height="530"
-                       alt="Screenshot of the skill gap dashboard showing summary numbers and key findings cards" loading="lazy">
-                </a>
-                <div class="btn-row project-links">
-                  <a href="https://course-to-career-skill-gap.streamlit.app" class="btn btn--brown" target="_blank" rel="noopener">
-                    Live dashboard <i data-lucide="external-link"></i>
-                  </a>
-                  <a href="https://github.com/marisapori/course-to-career-skill-gap" class="btn btn--brown" target="_blank" rel="noopener">
-                    Code on GitHub <i data-lucide="external-link"></i>
-                  </a>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <!-- Awards: always visible (not tucked inside an entry), full width -->
-          <div class="timeline timeline--wide reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
-            <ul class="awards">
-              <li><strong>Vires Scholarship</strong> · Florida State University</li>
-              <li><strong>President’s List</strong> · Fall 2025 &amp; Spring 2026, Florida State University</li>
-              <li><strong>AP Scholar</strong> · Marjory Stoneman Douglas High School</li>
-              <li><strong>Honorable Mention</strong> · Florida Scholastic Press Association</li>
-              <li><strong>Opinion Writing Award</strong> · “Agricultural Practices Unnecessarily Accelerate Climate Change”</li>
-            </ul>
-          </div>
-
-          <!-- Leadership: spans the full width under Work and Education -->
-          <div class="timeline timeline--wide reveal">
             <h2 class="timeline__title subheading"><i data-lucide="users"></i> Leadership</h2>
 
             <details class="timeline__item" data-skills="communication events">

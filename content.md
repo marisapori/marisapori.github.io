@@ -22,9 +22,19 @@ Where each piece of text lives, so it's quick to find and change.
   the words in each entry's `data-skills`)
 - **Work**: Outreach Intern · Psychiatrist's Office Intern ·
   Occupational Safety and Healthcare Department Intern · Code Sensei
-- **Education**: Florida State University · Marjory Stoneman Douglas High School
 - **Leadership**: CCI Student Leadership Council · IT Leadership Program ·
   WISE · Connecting Girls to STEM
+
+## Education — `education.html`
+- **Intro line** under the headline (major + minors)
+- **Education**: Florida State University · Marjory Stoneman Douglas High School
+  (entries start open)
+- **Awards & Recognition**: always-visible list
+
+## Projects — `projects.html` (career portfolio)
+- One `<article class="project">` per project: screenshot, date/team line,
+  tool tags, **Goals & scope**, **My role**, link buttons
+- **CCI Course-to-Career Skill Gap Dashboard** (`images/skill-gap-dashboard.webp`)
 
 ## Contact — `contact.html`
 - **Chat bubbles**: `.chat` — `bubble--them` = visitor, `bubble--me` = Mariana
@@ -34,3 +44,4 @@ Where each piece of text lives, so it's quick to find and change.
 - `portrait.webp` — framed headshot (Home)
 - `skills.webp` — framed coding-lab photo (Skills)
 - `contact.webp` — framed Connecting Girls to STEM photo (Contact)
+- `skill-gap-dashboard.webp` — dashboard screenshot (Projects)

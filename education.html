@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mariana Neri Sapori — ICT student at Florida State University. Education, honors and awards.">
+  <title>Education | Mariana Neri Sapori</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat Regular (400) for body, SemiBold (600) for subheadings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (RoxboroughCF is loaded inside it with @font-face) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is on, before the page paints, so fade-in elements
+       start hidden without a flicker (without JS they stay visible) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION — same on every page; the current page's link
+       gets aria-current="page". Collapses to a hamburger on mobile.
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Main navigation">
+      <a href="index.html" class="navbar__logo">Mariana Neri Sapori</a>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="education.html" aria-current="page">Education</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: only visible on mobile -->
+      <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         EDUCATION — cream background: schools (open by default)
+         beside Awards & Recognition
+         ===================================================== -->
+    <section id="education" class="section section--cream page-top has-pattern">
+      <div class="container">
+        <p class="eyebrow reveal">Where I've Learned</p>
+        <h1 class="headline headline--lg reveal">Education</h1>
+        <p class="page-intro reveal">Information, Communication &amp; Technology at Florida State University, with minors in Data Analytics and STEM Entrepreneurship.</p>
+
+        <div class="timeline-grid">
+          <!-- Education history -->
+          <div class="timeline reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="graduation-cap"></i> Education</h2>
+
+            <details class="timeline__item" open data-skills="databases data">
+              <summary>
+                <span class="timeline__date">2024 — Present</span>
+                <span class="timeline__heading subheading">Florida State University</span>
+                <span class="timeline__place">Bachelor of Science in Information Technology &middot; Expected Graduation: May 2028 &middot; Tallahassee, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>Major: Information, Communication &amp; Technology (ICT)</li>
+                  <li>Minors: Data Analytics and STEM Entrepreneurship</li>
+                  <li>GPA: 3.6</li>
+                  <li>Honors: Vires Scholarship recipient; President’s List (Fall 2025 &amp; Spring 2026)</li>
+                  <li>Relevant coursework: Information Systems &amp; Services, Database Systems, and Digital Media in Society, covering system management, databases, networked servers, and digital communication strategy.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="timeline__item" open data-skills="writing">
+              <summary>
+                <span class="timeline__date">2020 — 2024</span>
+                <span class="timeline__heading subheading">Marjory Stoneman Douglas High School</span>
+                <span class="timeline__place">High School &middot; Parkland, FL</span>
+                <i data-lucide="chevron-down" class="timeline__chevron"></i>
+              </summary>
+              <div class="timeline__body">
+                <ul class="timeline__list">
+                  <li>High School Diploma; ACT score: 31</li>
+                  <li>Honors: AP Scholar; Florida Scholastic Press Association Honorable Mention</li>
+                  <li>Award for the climate change opinion article “Agricultural Practices Unnecessarily Accelerate Climate Change.”</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Awards: always-visible list -->
+          <div class="timeline reveal">
+            <h2 class="timeline__title subheading"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
+            <ul class="awards">
+              <li><strong>Vires Scholarship</strong> · Florida State University</li>
+              <li><strong>President’s List</strong> · Fall 2025 &amp; Spring 2026, Florida State University</li>
+              <li><strong>AP Scholar</strong> · Marjory Stoneman Douglas High School</li>
+              <li><strong>Honorable Mention</strong> · Florida Scholastic Press Association</li>
+              <li><strong>Opinion Writing Award</strong> · “Agricultural Practices Unnecessarily Accelerate Climate Change”</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Small footer bar, same on every page -->
+  <footer class="section--brown site-footer">
+    <p class="container">
+      &copy; <span id="year"></span> Mariana Neri Sapori. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Lucide icons from CDN: version pinned, and the integrity hash makes the
+       browser refuse the file if it was ever altered on the CDN -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge" crossorigin="anonymous"></script>
+  <!-- Site behaviour: menu, scroll animations, image placeholders -->
+  <script src="js/main.js"></script>
+</body>
+</html>
