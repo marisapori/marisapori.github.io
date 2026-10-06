@@ -16,6 +16,11 @@ Where each piece of text lives, so it's quick to find and change.
   - Front: title + "N skills" count
   - Back: skill list; Technical and Tools show 1–3 proficiency dots
 
+## Education — `education.html`
+- **Intro line** under the headline (major + minors)
+- **Awards & Recognition**: always-visible list, at the top
+- **Education**: Florida State University · Marjory Stoneman Douglas High School
+
 ## Experience — `experience.html`
 - **Download resume** button under the headline
 - Entries start open (`<details open>`); visitors can close them
@@ -25,11 +30,6 @@ Where each piece of text lives, so it's quick to find and change.
   Occupational Safety and Healthcare Department Intern · Code Sensei
 - **Leadership**: CCI Student Leadership Council · IT Leadership Program ·
   WISE · Connecting Girls to STEM
-
-## Education — `education.html`
-- **Intro line** under the headline (major + minors)
-- **Awards & Recognition**: always-visible list, at the top
-- **Education**: Florida State University · Marjory Stoneman Douglas High School
 
 ## Projects — `projects.html` (career portfolio)
 - One `<article class="project">` per project: screenshot, date/team line,

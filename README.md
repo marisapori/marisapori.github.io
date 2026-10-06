@@ -8,8 +8,8 @@ A responsive personal resume site built with plain HTML, CSS and JavaScript.
 resume-site/
 ├── index.html      Home: intro, typing label, headshot + social links, career objective
 ├── skills.html     Skills: flip cards with proficiency dots
-├── experience.html Experience: skill-filter chips, expandable Work / Leadership
 ├── education.html  Education: schools + Awards & Recognition
+├── experience.html Experience: skill-filter chips, expandable Work / Leadership
 ├── projects.html   Projects (career portfolio): screenshot, goals & scope, my role
 ├── contact.html    Contact: animated chat-bubble conversation
 ├── css/style.css   All styling, organised in numbered sections
