@@ -9,6 +9,7 @@
    7. Skill chips that highlight experience entries
    8. Flip cards on the Skills page
    9. Chat bubbles on the Contact page
+   10. Slide viewer on the Projects page
    ========================================================== */
 
 
@@ -228,3 +229,39 @@ if (chat && !reduceMotion) {
 
   playChat();
 }
+
+
+/* ---------- 10. SLIDE VIEWER ----------
+   Flips through a project's presentation in place: arrow buttons,
+   left/right keys while the viewer has focus, or a sideways swipe.
+   Wraps around from the last slide to the first. */
+
+document.querySelectorAll('[data-slides]').forEach((viewer) => {
+  const slides = viewer.querySelectorAll('.slides__viewport img');
+  const count = viewer.querySelector('.slides__count');
+  let current = 0;
+
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((img, i) => { img.hidden = i !== current; });
+    count.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  viewer.querySelector('[data-slides-prev]').addEventListener('click', () => show(current - 1));
+  viewer.querySelector('[data-slides-next]').addEventListener('click', () => show(current + 1));
+
+  viewer.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+
+  // Swipe: a mostly-sideways drag of 40px or more changes the slide.
+  let startX = null;
+  viewer.addEventListener('touchstart', (event) => { startX = event.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', (event) => {
+    if (startX === null) return;
+    const dx = event.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) >= 40) show(current + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+});

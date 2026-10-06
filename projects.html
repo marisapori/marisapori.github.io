@@ -97,10 +97,25 @@
         </article>
 
         <article class="project reveal">
-          <a class="project-shot" href="IT-Leadership-Social-Media-Marketing.pdf" target="_blank" rel="noopener">
-            <img src="images/social-media-marketing.webp" width="1000" height="562"
-                 alt="Presentation slide listing the project goals beside the Instagram profiles of Nole Your Campus, Get Involved at FSU CCI and Align FSU" loading="lazy">
-          </a>
+          <!-- Slide viewer: arrows, keyboard arrows or swipe to flip through
+               the presentation (js/main.js section 10). Without JS only
+               slide 1 shows, and "View presentation" opens the full PDF. -->
+          <div class="project-shot slides" data-slides tabindex="0" aria-roledescription="carousel" aria-label="Presentation slides">
+            <div class="slides__viewport">
+              <img src="images/smm-slides/slide-1.webp" width="1000" height="562" alt="Slide 1 of 7. Title slide: Social Media Marketing, LIS 4480 final project presentation by Mariana Neri Sapori, Julia Ledo and Trentt Melton">
+              <img src="images/smm-slides/slide-2.webp" width="1000" height="562" alt="Slide 2 of 7. Project goals slide beside the Instagram profiles of Nole Your Campus, Get Involved at FSU CCI and Align FSU with their starting follower counts" loading="lazy" hidden>
+              <img src="images/smm-slides/slide-3.webp" width="1000" height="562" alt="Slide 3 of 7. Social media performance slide: goals, results and metrics for each of the three accounts" loading="lazy" hidden>
+              <img src="images/smm-slides/slide-4.webp" width="1000" height="562" alt="Slide 4 of 7. Team performance slide listing each co-leader's role and contributions" loading="lazy" hidden>
+              <img src="images/smm-slides/slide-5.webp" width="1000" height="562" alt="Slide 5 of 7. Team performance slide: what the team did well, how it could improve, and its self-grade" loading="lazy" hidden>
+              <img src="images/smm-slides/slide-6.webp" width="1000" height="562" alt="Slide 6 of 7. Results to share slide: leadership traits and what the team would do differently, with a photo from a CCI event" loading="lazy" hidden>
+              <img src="images/smm-slides/slide-7.webp" width="1000" height="562" alt="Slide 7 of 7. Thank you slide from the three co-leads" loading="lazy" hidden>
+            </div>
+            <div class="slides__controls">
+              <button class="slides__btn" data-slides-prev aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+              <span class="slides__count" aria-live="polite">1 / 7</span>
+              <button class="slides__btn" data-slides-next aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+            </div>
+          </div>
 
           <div class="project__text">
             <p class="timeline__date">Spring 2026 &middot; Team of 3 &middot; LIS 4480 IT Leadership</p>
@@ -118,17 +133,14 @@
 
             <h3 class="project-label">My role</h3>
             <ul class="timeline__list">
-              <li>Co-led a three-person team running the campaign across all three accounts, using a shared content calendar to keep posting consistent.</li>
-              <li>Mainly responsible for @getinvolvedcci_fsu: created and scheduled 13 posts promoting CCI events and opportunities.</li>
+              <li>Co-led a three-person team that ran the campaign across all three accounts, using a shared content calendar to keep posting consistent.</li>
+              <li>Was mainly responsible for @getinvolvedcci_fsu: created and scheduled 13 posts promoting CCI events and opportunities.</li>
               <li>Tracked follower growth, engagement and reach, and used the results to guide what we posted next.</li>
             </ul>
 
             <div class="btn-row project-links">
               <a href="IT-Leadership-Social-Media-Marketing.pdf" class="btn btn--brown" target="_blank" rel="noopener">
                 View presentation <i data-lucide="external-link"></i>
-              </a>
-              <a href="https://www.instagram.com/getinvolvedcci_fsu/" class="btn btn--brown" target="_blank" rel="noopener">
-                Instagram <i data-lucide="external-link"></i>
               </a>
             </div>
           </div>
