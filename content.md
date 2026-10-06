@@ -35,6 +35,8 @@ Where each piece of text lives, so it's quick to find and change.
 - One `<article class="project">` per project: screenshot, date/team line,
   tool tags, **Goals & scope**, **My role**, link buttons
 - **CCI Course-to-Career Skill Gap Dashboard** (`images/skill-gap-dashboard.webp`)
+- **IT Leadership Social Media Marketing** (`images/social-media-marketing.webp`,
+  presentation: `IT-Leadership-Social-Media-Marketing.pdf`)
 
 ## Contact — `contact.html`
 - **Chat bubbles**: `.chat` — `bubble--them` = visitor, `bubble--me` = Mariana
@@ -45,3 +47,4 @@ Where each piece of text lives, so it's quick to find and change.
 - `skills.webp` — framed coding-lab photo (Skills)
 - `contact.webp` — framed Connecting Girls to STEM photo (Contact)
 - `skill-gap-dashboard.webp` — dashboard screenshot (Projects)
+- `social-media-marketing.webp` — slide 2 of the LIS 4480 presentation (Projects)
