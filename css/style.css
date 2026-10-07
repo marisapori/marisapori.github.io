@@ -1084,6 +1084,9 @@ p {
   font-style: italic;
   opacity: 0.85;
 }
+.project__note--after {
+  margin: 1rem 0 0;
+}
 .project__note a {
   font-style: normal;
   font-weight: 600;
