@@ -8,12 +8,12 @@ A responsive personal resume site built with plain HTML, CSS and JavaScript.
 resume-site/
 ├── index.html      Home: intro, typing label, headshot + social links, career objective
 ├── skills.html     Skills: flip cards with proficiency dots
-├── education.html  Education: schools + Awards & Recognition
-├── experience.html Experience: skill-filter chips, expandable Work / Leadership
+├── education.html  Education: number strip, award tiles, FSU card with tag groups
+├── experience.html Experience: skill chips, Work | Leadership lanes of icon cards
 ├── projects.html   Projects (career portfolio): screenshot, goals & scope, my role
-├── contact.html    Contact: animated chat-bubble conversation
+├── contact.html    Contact: message window with animated chat + Copy my email! pill
 ├── css/style.css   All styling, organised in numbered sections
-├── js/main.js      Menu, scroll fade-ins, typing label, skill chips, flip cards, chat
+├── js/main.js      Menu, fade-ins, typing label, skill chips + Open all, flip cards, chat
 ├── fonts/          RoxboroughCF.ttf (headline font)
 ├── images/         portrait.webp, skills.webp, contact.webp (framed photos)
 ├── favicon.svg     Browser-tab icon
@@ -30,7 +30,9 @@ resume-site/
 - **Resume:** save the new PDF over `Mariana-Neri-Sapori-Resume.pdf`.
 - **Skills:** each card's back is a list; add an `<li>` and update the
   "N skills" count on the card's front. Proficiency = how many dots have `is-on`.
-- **Experience skill chips:** each entry lists its skills in `data-skills`.
+- **Experience cards:** each role is an `<li class="journey__item">` in the
+  Work or Leadership lane, with its skills in `data-skills` (for the chips),
+  a Lucide icon name, and an optional `.journey__highlight` (real numbers only).
 - **Projects:** copy an `<article class="project">` block in `projects.html`.
 - **Menu / footer:** they're repeated at the top and bottom of every page, so
   change all six pages when you edit them.

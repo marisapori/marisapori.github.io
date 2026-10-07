@@ -48,69 +48,114 @@
   <main>
 
     <!-- =====================================================
-         EDUCATION — cream background: Awards & Recognition on top,
-         then the schools (open by default) side by side
+         EDUCATION — cream background: title, numbers and a photo,
+         Awards as text tiles, then one FSU card with tag groups. Icons only on the two headings;
+         the big serif type is the visual here.
          ===================================================== -->
     <section id="education" class="section section--cream page-top has-pattern">
       <div class="container">
-        <p class="eyebrow reveal">Where I've Learned</p>
-        <h1 class="headline headline--lg reveal">Education</h1>
-        <p class="page-intro reveal">Information, Communication &amp; Technology at Florida State University, with minors in Data Analytics and STEM Entrepreneurship.</p>
+        <!-- Header: title, intro, numbers and graduation bar on the left;
+             photo on the right (stacks underneath on phones) -->
+        <div class="edu-intro">
+          <div class="edu-intro__text">
+            <p class="eyebrow reveal">Where I've Learned</p>
+            <h1 class="headline headline--lg reveal">Education</h1>
+            <p class="page-intro reveal">Part tech, part people, fully caffeinated. ICT gave me a major that fits all three.</p>
 
-        <div class="timeline-grid">
-          <!-- Awards: always-visible list, full width at the top -->
-          <div class="timeline timeline--wide reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
-            <ul class="awards">
-              <li><strong>Vires Scholarship</strong> · Florida State University</li>
-              <li><strong>President’s List</strong> · Fall 2025 &amp; Spring 2026, Florida State University</li>
-              <li><strong>AP Scholar</strong> · Marjory Stoneman Douglas High School</li>
-              <li><strong>Honorable Mention</strong> · Florida Scholastic Press Association</li>
-              <li><strong>Opinion Writing Award</strong> · “Agricultural Practices Unnecessarily Accelerate Climate Change”</li>
+            <!-- Key numbers at a glance -->
+            <ul class="stat-strip reveal" aria-label="At a glance">
+              <li><strong>3.6</strong> <span>GPA</span></li>
+              <li><strong>2&times;</strong> <span>President’s List</span></li>
+              <li><strong>2</strong> <span>Minors</span></li>
+              <li><strong>May 2028</strong> <span>Graduation</span></li>
             </ul>
+
+            <!-- Road to graduation: how much of the time between starting at FSU
+                 and graduating has passed. JS works out today's % from the two
+                 dates; the 57% written here is the fallback if JS is off. -->
+            <div class="grad-progress reveal" data-start="2024-08-26" data-end="2028-05-05">
+              <div class="grad-progress__ends">
+                <span>Aug 2024<span class="grad-progress__desc"> &middot; Started at FSU</span></span>
+                <span>May 2028<span class="grad-progress__desc"> &middot; Graduation</span></span>
+              </div>
+              <div class="grad-progress__track" style="--progress: 57%" role="progressbar"
+                   aria-label="Time to graduation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="57">
+                <span class="grad-progress__fill"></span>
+                <span class="grad-progress__dot"></span>
+              </div>
+              <p class="grad-progress__label">You are here &middot; <strong class="grad-progress__pct">57%</strong> of the way to graduation</p>
+            </div>
           </div>
 
-          <!-- Schools: full width, side by side -->
-          <div class="timeline timeline--wide reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="graduation-cap"></i> Education</h2>
-
-            <details class="timeline__item" open data-skills="databases data">
-              <summary>
-                <span class="timeline__date">2024 — Present</span>
-                <span class="timeline__heading subheading">Florida State University</span>
-                <span class="timeline__place">Bachelor of Science in Information Technology &middot; Expected Graduation: May 2028 &middot; Tallahassee, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Major: Information, Communication &amp; Technology (ICT)</li>
-                  <li>Minors: Data Analytics and STEM Entrepreneurship</li>
-                  <li>GPA: 3.6</li>
-                  <li>Relevant coursework: Information Systems &amp; Services, Database Systems, and Digital Media in Society, covering system management, databases, networked servers, and digital communication strategy.</li>
-                  <li>Leadership: Vice President of WISE, Secretary of Connecting Girls to STEM, Social Media Marketing Co-Lead in the IT Leadership Program, and member of the CCI Student Leadership Council (<a href="experience.html">see Experience</a>).</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="timeline__item" open data-skills="writing">
-              <summary>
-                <span class="timeline__date">2020 — 2024</span>
-                <span class="timeline__heading subheading">Marjory Stoneman Douglas High School</span>
-                <span class="timeline__place">High School &middot; Parkland, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>High School Diploma; ACT score: 31</li>
-                  <li>Eagle Eye Newspaper, Staffer (2022&ndash;2023): raised over $1,000 for print issues through ad sales and a concession stand, managed the paper&rsquo;s earnings, and wrote and photographed stories.</li>
-                  <li>AP Language &amp; Composition, Teacher Assistant (2023&ndash;2024): graded assignments and tutored students.</li>
-                  <li>Club officer (2022&ndash;2024): Treasurer of Womanism Club, managing club funds and donation drives; Secretary of HandsOnBroward Club, a community service club.</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-
+          <!-- Photo: Mariana at a Connecting Girls to STEM demo table
+               (images/contact.webp, which already has its own window frame) -->
+          <figure class="edu-intro__photo img-slot img-slot--framed reveal" data-label="images/contact.webp">
+            <img src="images/contact.webp" width="1000" height="1428" alt="Mariana at a Connecting Girls to STEM demo table with a computer showing Google's Quick, Draw!">
+          </figure>
         </div>
+
+        <!-- Awards: one tile each, name in serif, details underneath -->
+        <h2 class="section-label subheading reveal"><i data-lucide="award"></i> Awards &amp; Recognition</h2>
+        <ul class="award-tiles reveal">
+          <li>
+            <span class="award-tiles__name">Vires Scholarship</span>
+            <span class="award-tiles__meta">Florida State University</span>
+          </li>
+          <li>
+            <span class="award-tiles__name">President’s List</span>
+            <span class="award-tiles__meta">Fall 2025 &amp; Spring 2026 &middot; Florida State University</span>
+          </li>
+          <li>
+            <span class="award-tiles__name">Honorable Mention</span>
+            <span class="award-tiles__meta">Florida Scholastic Press Association</span>
+          </li>
+          <li>
+            <span class="award-tiles__name">Opinion Writing Award</span>
+            <span class="award-tiles__meta">“Agricultural Practices Unnecessarily Accelerate Climate Change”</span>
+          </li>
+        </ul>
+
+        <!-- University: one card, always open (nothing to hide now that
+             it's the only school). Left = degree info, right = tag groups. -->
+        <h2 class="section-label subheading reveal"><i data-lucide="graduation-cap"></i> University</h2>
+        <article class="school-feature reveal">
+          <div class="school-feature__main">
+            <p class="journey__date">2024 — Present</p>
+            <h3 class="school-feature__name">Florida State University</h3>
+            <p class="school-feature__degree">Bachelor of Science in Information Technology</p>
+            <p class="journey__place">College of Communication &amp; Information &middot; Tallahassee, FL</p>
+            <p class="school-feature__note">My coursework covers system management, databases, networked servers, and digital communication strategy.</p>
+          </div>
+
+          <div class="school-details">
+            <p class="school-details__label">Major</p>
+            <ul class="tags">
+              <li>Information, Communication &amp; Technology (ICT)</li>
+            </ul>
+            <p class="school-details__label">Minors</p>
+            <ul class="tags">
+              <li>Data Analytics</li>
+              <li>STEM Entrepreneurship</li>
+            </ul>
+            <p class="school-details__label">Relevant coursework</p>
+            <ul class="tags">
+              <li>Information Systems &amp; Services</li>
+              <li>Database Systems</li>
+              <li>Digital Media in Society</li>
+              <li>IT Leadership</li>
+            </ul>
+            <p class="school-details__label">Campus involvement</p>
+            <ul class="tags">
+              <li>WISE &middot; Vice President</li>
+              <li>Connecting Girls to STEM &middot; Secretary</li>
+              <li>IT Leadership Program</li>
+              <li>CCI Student Leadership Council</li>
+            </ul>
+            <p class="school-feature__links">
+              <a href="experience.html">See my roles &rarr;</a>
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 

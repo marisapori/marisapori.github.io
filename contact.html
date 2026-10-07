@@ -49,34 +49,68 @@
 
     <!-- =====================================================
          CONTACT — brown background, lavender headline,
-         two-column split: details left, photo right
+         title and a short line on the left, message window on the right
          ===================================================== -->
     <section id="contact" class="section section--brown page-top has-pattern">
-      <div class="container split">
+      <div class="container split contact-split">
         <div class="split__text reveal">
           <p class="eyebrow">Let's Talk</p>
-          <h1 class="headline headline--xl">Contact</h1>
-          <!-- Chat thread: every bubble is in the HTML, so the details are
-               always there; JS only plays them in one by one (see main.js). -->
-          <ol class="chat" aria-label="Contact details, as a chat">
-            <li class="bubble bubble--them">Hi Mariana! How can I reach you?</li>
-            <li class="bubble bubble--me">Hello! Email is the best way: <a href="mailto:mariananerisapori@gmail.com">mariananerisapori@gmail.com</a></li>
-            <li class="bubble bubble--them">Where are you based?</li>
-            <li class="bubble bubble--me">Tallahassee, FL, at Florida State University</li>
-            <li class="bubble bubble--them">Where can I see more of your work?</li>
-            <li class="bubble bubble--me">I'm on <a href="https://www.linkedin.com/in/marisapori/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://github.com/marisapori" target="_blank" rel="noopener">GitHub</a>, come say hi!</li>
-          </ol>
-          <div class="btn-row">
-            <a href="mailto:mariananerisapori@gmail.com" class="btn btn--lavender">
-              Send an email <i data-lucide="send"></i>
-            </a>
-          </div>
+          <h1 class="headline headline--lg">Contact</h1>
+          <p class="contact-intro">Looking for an intern, a teammate, or a coffee chat? My inbox is open.</p>
+          <p class="contact-more">I'm currently looking for <strong>summer 2027 internships</strong>. I'm also always happy to talk about my projects, my campus involvement, or life as an ICT student at FSU.</p>
+          <p class="contact-label">Interested in</p>
+          <ul class="tags tags--dark">
+            <li>Data analysis</li>
+            <li>Data visualization</li>
+            <li>Project management</li>
+            <li>IT</li>
+            <li>Digital marketing</li>
+            <li>Tech outreach &amp; education</li>
+          </ul>
         </div>
 
-        <!-- Photo: images/contact.webp (already has its own window frame) -->
-        <figure class="split__media img-slot img-slot--framed reveal" data-label="images/contact.webp">
-          <img src="images/contact.webp" alt="Mariana at a Connecting Girls to STEM demo table with a computer showing Google's Quick, Draw!">
-        </figure>
+        <div class="reveal">
+          <!-- Message window: header (name, status), the chat thread,
+               then quick-reply pills. Every bubble is in the HTML, so the
+               details are always there; JS only plays them in one by one. -->
+          <div class="messenger">
+            <div class="messenger__bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="messenger__header">
+              <div>
+                <p class="messenger__name">Mariana Neri Sapori</p>
+                <p class="messenger__status">Usually replies within a day</p>
+              </div>
+            </div>
+
+            <ol class="chat" aria-label="Contact details, as a chat">
+              <li class="chat__meta">Today</li>
+              <li class="bubble bubble--them">Hi Mariana! How can I reach you?</li>
+              <li class="bubble bubble--me">Hello! Email is the best way: <a href="mailto:mariananerisapori@gmail.com">mariananerisapori@gmail.com</a></li>
+              <li class="bubble bubble--them">Where are you based?</li>
+              <li class="bubble bubble--me">Tallahassee, FL, at Florida State University</li>
+              <li class="bubble bubble--them">Where can I see more of your work?</li>
+              <li class="bubble bubble--me">I'm on <a href="https://www.linkedin.com/in/marisapori/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://github.com/marisapori" target="_blank" rel="noopener">GitHub</a>, come say hi!</li>
+              <li class="chat__meta chat__read">Read</li>
+            </ol>
+
+            <!-- Message bar: looks like the "type a message" box of a chat
+                 app, and "Copy my email!" types itself out after the chat plays.
+                 Clicking anywhere on it copies the email address (the link in
+                 the chat bubble above already opens an email app) -->
+            <div class="quick-replies">
+              <button class="compose" type="button" data-copy="mariananerisapori@gmail.com" aria-label="Copy my email">
+                <span class="compose__text">Copy my email!</span>
+                <span class="compose__caret" aria-hidden="true"></span>
+                <span class="compose__send" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </span>
+              </button>
+              <span class="quick-replies__toast" role="status" aria-live="polite"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

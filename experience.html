@@ -48,8 +48,8 @@
   <main>
 
     <!-- =====================================================
-         EXPERIENCE — cream background: skill chips, then Work and
-         Leadership side by side
+         EXPERIENCE — cream background: skill chips, then two
+         lanes (Work | Leadership), each newest first
          ===================================================== -->
     <section id="experience" class="section section--cream page-top has-pattern">
       <div class="container">
@@ -59,10 +59,15 @@
           View resume <i data-lucide="external-link"></i>
         </a>
 
-        <!-- Skill filter: clicking a chip highlights and opens matching entries.
-             Each entry lists its skills in data-skills. -->
+        <!-- Skill filter: clicking a chip highlights and opens matching stops.
+             Each stop lists its skills in data-skills. -->
         <div class="skill-filter reveal">
-          <p class="skill-filter__label">Click a skill to see where I've used it &middot; click an entry's title to close it</p>
+          <div class="skill-filter__top">
+            <p class="skill-filter__label">Tap a card to see what I did &middot; or pick a skill to see where I've used it</p>
+            <button class="journey-toggle-all" type="button" aria-pressed="false">
+              <i data-lucide="chevrons-up-down"></i> <span>Open all</span>
+            </button>
+          </div>
           <div class="skill-filter__chips" role="group" aria-label="Filter experience by skill">
             <button class="chip" data-skill="communication" aria-pressed="false">Communication</button>
             <button class="chip" data-skill="data" aria-pressed="false">Data Analysis</button>
@@ -77,139 +82,152 @@
           <p class="skill-filter__status" aria-live="polite"></p>
         </div>
 
-        <div class="timeline-grid">
-          <!-- Work history -->
-          <div class="timeline reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="briefcase"></i> Work</h2>
+        <!-- Two lanes, each newest first: Work on the left, Leadership on
+             the right. Each stop = date, icon on the lane's line, and a
+             card (<details>) that starts closed, except the first one,
+             which starts open to show visitors that the cards expand. The card's summary shows
+             one highlight; the bullets only appear when opened.
+             On phones the lanes stack, Work first. -->
+        <div class="journey">
+          <section class="journey__lane journey__lane--work" aria-labelledby="lane-work">
+            <h2 class="journey__lane-title subheading" id="lane-work"><span class="journey__dot"></span> Work</h2>
+            <ol class="journey__stops">
+              <li class="journey__item journey__item--work reveal" data-skills="communication data events">
+                <p class="journey__date">Aug 2026 — Present</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="megaphone"></i></span>
+                <details class="journey__card" open>
+                  <summary>
+                    <span class="journey__heading subheading">Outreach Intern</span>
+                    <span class="journey__place">FSU Information Technology Services</span>
+                    <span class="journey__highlight"><strong>300+</strong> students reached</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Staffed ITS booths at 6+ campus events, like Market Wednesday and New Student Orientation.</li>
+                    <li>Tracked engagement to show which ITS services drew the most interest.</li>
+                    <li>Secured tabling at 3 campus-wide events with the Dean of Students Office and Student Government.</li>
+                  </ul>
+                </details>
+              </li>
+              <li class="journey__item journey__item--work reveal" data-skills="excel writing communication">
+                <p class="journey__date">Jun 2023 — Aug 2024</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="calendar-check"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">Psychiatrist’s Office Intern</span>
+                    <span class="journey__place">Office of Dr. Priti Kothari &middot; Boca Raton, FL</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Ran patient scheduling, intake, and check-ins using Excel.</li>
+                    <li>Wrote mental health blog posts for the practice website.</li>
+                  </ul>
+                </details>
+              </li>
+              <li class="journey__item journey__item--work reveal" data-skills="data research">
+                <p class="journey__date">Mar 2023</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="stethoscope"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">Occupational Safety &amp; Healthcare Intern</span>
+                    <span class="journey__place">Healthcare Municipality of Montes Claros &middot; São Paulo, Brazil</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Compiled patient data for a study of workers’ conditions in the hospital.</li>
+                    <li>Helped with therapy group activities and administrative tasks.</li>
+                  </ul>
+                </details>
+              </li>
+              <li class="journey__item journey__item--work reveal" data-skills="javascript teaching">
+                <p class="journey__date">Aug 2022 — Sep 2023</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="code-xml"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">Code Sensei</span>
+                    <span class="journey__place">Code Ninjas &middot; Coral Springs, FL</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Taught kids coding and problem-solving in Scratch and JavaScript.</li>
+                  </ul>
+                </details>
+              </li>
+            </ol>
+          </section>
 
-            <details class="timeline__item" open data-skills="communication data events">
-              <summary>
-                <span class="timeline__date">August 2026 — Present</span>
-                <span class="timeline__heading subheading">Outreach Intern</span>
-                <span class="timeline__place">Florida State University Information Technology Services, Tallahassee, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Staffed ITS outreach booths at 6+ campus events, including Market Wednesday and New Student Orientation, engaging 300+ students on available tech resources like the Software Portal and IT Help Desk.</li>
-                  <li>Tracked student engagement at outreach events to help the Integrated Communications team identify which ITS services generated the most interest.</li>
-                  <li>Partnered with the Dean of Students Office and Student Government to secure tabling space at 3 major campus-wide events.</li>
-                </ul>
-              </div>
-            </details>
+          <section class="journey__lane journey__lane--lead" aria-labelledby="lane-lead">
+            <h2 class="journey__lane-title subheading" id="lane-lead"><span class="journey__dot"></span> Leadership</h2>
+            <ol class="journey__stops">
+              <li class="journey__item journey__item--lead reveal" data-skills="communication events">
+                <p class="journey__date">May 2026 — Present</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">WISE (Women in IT/ICT Sharing Experiences)</span>
+                    <span class="journey__place">Vice President &middot; Member since Aug 2025</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Lead professional development events, including a guest speaker series and resume workshops.</li>
+                    <li>Plan joint events with other student organizations.</li>
+                    <li>Mentor women in IT and connect with local business and tech leaders.</li>
+                  </ul>
+                </details>
+              </li>
 
-            <details class="timeline__item" open data-skills="excel writing communication">
-              <summary>
-                <span class="timeline__date">June 2023 — August 2024</span>
-                <span class="timeline__heading subheading">Psychiatrist’s Office Intern</span>
-                <span class="timeline__place">Office of Dr. Priti Kothari, Child, Adolescent, and Adult Psychiatrist, Boca Raton, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Organized patient scheduling, intake, and front-desk operations (calls, check-ins) using Excel to support efficient office workflows.</li>
-                  <li>Authored mental health blog posts for the practice website to educate patients and families.</li>
-                </ul>
-              </div>
-            </details>
+              <li class="journey__item journey__item--lead reveal" data-skills="teaching events">
+                <p class="journey__date">May 2026 — Present</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="flask-conical"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">Connecting Girls to STEM</span>
+                    <span class="journey__place">Secretary &middot; Member since Aug 2025</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Run hands-on STEM activities and coding workshops at local schools.</li>
+                    <li>Help plan events that spark kids’ interest in science and technology.</li>
+                  </ul>
+                </details>
+              </li>
 
-            <details class="timeline__item" open data-skills="data research">
-              <summary>
-                <span class="timeline__date">March 2023</span>
-                <span class="timeline__heading subheading">Occupational Safety and Healthcare Department Intern</span>
-                <span class="timeline__place">Healthcare Municipality of Montes Claros, São Paulo, Brazil</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Compiled and organized patient development data to support researchers’ study of workers’ conditions in the hospital environment.</li>
-                  <li>Participated in therapy group activities and administrative tasks to promote improved healthcare.</li>
-                </ul>
-              </div>
-            </details>
+              <li class="journey__item journey__item--lead reveal" data-skills="communication events">
+                <p class="journey__date">Jan 2026 — Present</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="landmark"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">CCI Student Leadership Council</span>
+                    <span class="journey__place">Member &middot; Florida State University</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Connect students, the Dean’s office, and alumni across the College of Communication &amp; Information.</li>
+                    <li>Take part in workshops and networking events that build professional development for the whole college.</li>
+                  </ul>
+                </details>
+              </li>
 
-            <details class="timeline__item" open data-skills="javascript teaching">
-              <summary>
-                <span class="timeline__date">August 2022 — September 2023</span>
-                <span class="timeline__heading subheading">Code Sensei</span>
-                <span class="timeline__place">Code Ninjas, Coral Springs, FL</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Taught coding and problem-solving skills, including Scratch and JavaScript, to children in a supportive classroom environment.</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-
-          <!-- Leadership history -->
-          <div class="timeline reveal">
-            <h2 class="timeline__title subheading"><i data-lucide="users"></i> Leadership</h2>
-
-            <details class="timeline__item" open data-skills="communication events">
-              <summary>
-                <span class="timeline__date">January 2026 — Present</span>
-                <span class="timeline__heading subheading">CCI Student Leadership Council</span>
-                <span class="timeline__place">Member &middot; Florida State University</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Help bridge communication between students, the Dean’s office, and alumni across the College of Communication &amp; Information.</li>
-                  <li>Participate in workshops and networking events that connect students across CCI’s schools and majors and build professional development opportunities for everyone in the college.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="timeline__item" open data-skills="social data">
-              <summary>
-                <span class="timeline__date">January 2026 — May 2026</span>
-                <span class="timeline__heading subheading">IT Leadership Program</span>
-                <span class="timeline__place">Social Media Marketing Co-Lead &middot; Florida State University</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Managed three university-affiliated Instagram accounts for campus events and student organizations.</li>
-                  <li>Created digital flyers and content while maintaining consistent branding across platforms.</li>
-                  <li>Analyzed engagement metrics to optimize reach and increase student participation.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="timeline__item" open data-skills="communication events">
-              <summary>
-                <span class="timeline__date">August 2025 — Present</span>
-                <span class="timeline__heading subheading">WISE (Women in IT/ICT Sharing Experiences)</span>
-                <span class="timeline__place">Vice President &middot; Florida State University</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Lead professional development events, including guest speaker series and resume workshops.</li>
-                  <li>Partner with other student organizations to plan and host joint events.</li>
-                  <li>Engage in peer mentoring to support women in IT in a male-dominated field.</li>
-                  <li>Network with local business and technology leaders through mentorship opportunities.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="timeline__item" open data-skills="teaching events">
-              <summary>
-                <span class="timeline__date">August 2025 — Present</span>
-                <span class="timeline__heading subheading">Connecting Girls to STEM</span>
-                <span class="timeline__place">Secretary &middot; Florida State University</span>
-                <i data-lucide="chevron-down" class="timeline__chevron"></i>
-              </summary>
-              <div class="timeline__body">
-                <ul class="timeline__list">
-                  <li>Engage K-12 students through hands-on STEM activities and coding workshops at local schools.</li>
-                  <li>Support event planning and execution to promote interest in science and technology among youth.</li>
-                </ul>
-              </div>
-            </details>
-          </div>
+              <li class="journey__item journey__item--lead reveal" data-skills="social data">
+                <p class="journey__date">Jan 2026 — May 2026</p>
+                <span class="journey__node" aria-hidden="true"><i data-lucide="instagram"></i></span>
+                <details class="journey__card">
+                  <summary>
+                    <span class="journey__heading subheading">IT Leadership Program</span>
+                    <span class="journey__place">Social Media Marketing Co-Lead &middot; Florida State University</span>
+                    <span class="journey__highlight"><strong>3</strong> Instagram accounts</span>
+                    <span class="journey__toggle"><span class="when-closed">See details</span><span class="when-open">Hide details</span></span>
+                  </summary>
+                  <ul class="journey__list">
+                    <li>Managed three university Instagram accounts for campus events and student organizations.</li>
+                    <li>Designed flyers and posts with consistent branding.</li>
+                    <li>Used engagement metrics to grow reach and student turnout.</li>
+                  </ul>
+                  <a class="journey__link" href="projects.html">See the full project <i data-lucide="arrow-right"></i></a>
+                </details>
+              </li>
+            </ol>
+          </section>
         </div>
       </div>
     </section>

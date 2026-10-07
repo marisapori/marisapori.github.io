@@ -11,7 +11,7 @@
      8. Hero
      9. Lavender band (career objective)
     10. Skill flip cards
-    11. Experience timeline
+    11. Experience & Education (skill chips, cards, number strip)
     12. Contact chat bubbles / footer bar
     13. Image placeholder slots
     14. Scroll fade-in animation
@@ -565,6 +565,12 @@ p {
 
 
 /* ---------- 10. SKILL CARDS ---------- */
+/* "Flip a card below" in the Skills intro: bold, so visitors know
+   the cards are interactive */
+.flip-cue {
+  font-weight: 600;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -738,69 +744,11 @@ p {
 }
 
 
-/* ---------- 11. EXPERIENCE TIMELINE ---------- */
-.timeline-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 7vw, 6rem);
-  margin-top: 3rem;
-}
-
-.timeline__title {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--ink);
-}
-
-.timeline__title svg {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-/* Each entry has a lavender line on its left edge.
-   Entries are <details>: the <summary> is the clickable header,
-   and .timeline__body is the part that opens and closes. */
-.timeline__item {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
-  border-left: 2px solid var(--lavender);
-  transition: border-color 0.3s ease, transform 0.3s var(--ease), opacity 0.4s ease;
-}
-
-.timeline__item:hover {
-  border-color: var(--ink);
-  transform: translateX(4px);
-}
-
-.timeline__item summary {
-  position: relative;
-  display: block;
-  padding-right: 2.5rem; /* room for the chevron */
-  list-style: none;
-  cursor: pointer;
-}
-.timeline__item summary::-webkit-details-marker {
-  display: none;
-}
-.timeline__item summary:focus-visible {
-  outline: 2px solid var(--lavender);
-  outline-offset: 4px;
-}
-
-.timeline__date,
-.timeline__heading,
-.timeline__place {
-  display: block;
-}
-
+/* ---------- 11. SHARED ENTRY STYLES ----------
+   Date label and bullet list used on the Projects page,
+   and the fade-in for anything that opens. */
 .timeline__date {
+  display: block;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -809,49 +757,17 @@ p {
   margin-bottom: 0.4rem;
 }
 
-.timeline__place {
-  font-style: italic;
+.timeline__list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.timeline__list li {
+  margin-bottom: 0.4rem;
 }
 
-/* Chevron in a small circle; flips when the entry is open */
-.timeline__chevron {
-  position: absolute;
-  top: 0.1rem;
-  right: 0;
-  width: 1.75rem;
-  height: 1.75rem;
-  padding: 0.3rem;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  transition: transform 0.4s var(--ease), background 0.3s ease, border-color 0.3s ease;
-}
-.timeline__item summary:hover .timeline__chevron {
-  background: var(--lavender);
-  border-color: var(--lavender);
-  color: var(--brown);
-}
-.timeline__item[open] .timeline__chevron {
-  transform: rotate(180deg);
-}
-
-.timeline__body {
-  padding-top: 0.9rem;
-}
-.timeline__item[open] .timeline__body {
-  animation: open-entry 0.45s var(--ease);
-}
 @keyframes open-entry {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: none; }
-}
-
-/* Skill filter: matching entries get a thick lavender edge,
-   the rest fade back */
-.timeline-grid.is-filtering .timeline__item:not(.is-match) {
-  opacity: 0.35;
-}
-.timeline__item.is-match {
-  border-left-width: 4px;
 }
 
 
@@ -904,53 +820,530 @@ p {
   opacity: 0.75;
 }
 
-/* Leadership block runs across both columns, with its entries side by side */
-.timeline--wide {
-  grid-column: 1 / -1;
+/* ---------- 11c. EXPERIENCE JOURNEY ----------
+   Two lanes side by side, each newest first: Work on the left,
+   Leadership on the right. Each lane has its own line with an icon
+   "stop" per role. The lines sit on the inner edges, so together
+   they read as one spine down the middle of the page. */
+.journey {
+  --node: 3rem;
+  --gap: 1.25rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: clamp(3rem, 7vw, 6rem);
-  align-items: start; /* opening one entry doesn't stretch its neighbour */
-}
-.timeline--wide .timeline__title {
-  grid-column: 1 / -1;
+  column-gap: 1.25rem;
+  align-items: start;
 }
 
-/* Awards & Recognition: a simple always-visible list with lavender squares */
-.awards {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(22rem, 100%), 1fr));
-  gap: 0.8rem 3rem;
-  margin: 0 0 2.5rem;
+/* Lane heading: coloured dot + "Work" / "Leadership" */
+.journey__lane-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1rem 0 2rem;
+  padding-bottom: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+.journey__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--brown);
+}
+.journey__lane--lead .journey__dot {
+  background: var(--lavender);
+}
+
+.journey__stops {
+  position: relative;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-.awards li {
-  position: relative;
-  padding-left: 1.3rem;
-  line-height: 1.5;
-}
-.awards li::before {
+
+/* The lane's line, through the middle of its icon column:
+   on the right edge for Work, the left edge for Leadership */
+.journey__stops::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 0.6em;
-  height: 0.6em;
-  background: var(--lavender);
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: var(--line);
 }
-.awards strong {
+.journey__lane--work .journey__stops::before { right: calc(var(--node) / 2 - 1px); }
+.journey__lane--lead .journey__stops::before { left: calc(var(--node) / 2 - 1px); }
+
+/* Each stop: date on top of the card, icon beside both */
+.journey__item {
+  display: grid;
+  column-gap: var(--gap);
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+.journey__date { grid-row: 1; }
+.journey__card { grid-row: 2; }
+.journey__node { grid-row: 1 / span 2; }
+
+/* Work: card, then icon on the right. Leadership: icon, then card. */
+.journey__item--work { grid-template-columns: 1fr var(--node); }
+.journey__item--work .journey__date,
+.journey__item--work .journey__card { grid-column: 1; }
+.journey__item--work .journey__node { grid-column: 2; }
+.journey__item--work .journey__date { text-align: right; }
+
+.journey__item--lead { grid-template-columns: var(--node) 1fr; }
+.journey__item--lead .journey__node { grid-column: 1; }
+.journey__item--lead .journey__date,
+.journey__item--lead .journey__card { grid-column: 2; }
+
+.journey__date {
+  margin: 0;
+  padding-bottom: 0.4rem;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
-.timeline__list {
-  margin: 0;
-  padding-left: 1.1rem;
+/* Icon circle sitting on the line */
+.journey__node {
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  margin-top: 1.75rem; /* lines up with the card, below the date */
+  border-radius: 50%;
+  background: var(--brown);
+  color: var(--cream);
+  box-shadow: 0 0 0 6px var(--page); /* gap so the line doesn't touch it */
+  transition: box-shadow 0.35s var(--ease), opacity 0.4s ease;
 }
-.timeline__list li {
+.journey__node svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 1.6;
+}
+.journey__item--lead .journey__node {
+  background: var(--lavender);
+  color: var(--brown);
+}
+
+/* An open card gets a lavender ring around its icon, so it's easy to
+   see which roles are expanded (no effect on hover) */
+.journey__item:has(.journey__card[open]) .journey__node {
+  box-shadow: 0 0 0 4px var(--page), 0 0 0 6px var(--lavender);
+}
+
+/* The card: closed by default, the whole top part is clickable */
+.journey__card {
+  min-width: 0; /* lets long titles wrap instead of widening the grid */
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease), opacity 0.4s ease;
+}
+.journey__card:hover,
+.journey__card[open] {
+  border-color: var(--lavender);
+  box-shadow: 0 10px 28px -16px rgba(100, 65, 58, 0.35);
+}
+.journey__card:hover {
+  transform: translateY(-2px);
+}
+
+.journey__card summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  list-style: none;
+  cursor: pointer;
+}
+.journey__card summary::-webkit-details-marker {
+  display: none;
+}
+.journey__card summary:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.journey__heading,
+.journey__place,
+.journey__highlight {
+  grid-column: 1;
+  display: block;
+}
+.journey__heading {
+  margin-bottom: 0.15rem;
+}
+.journey__place {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+/* The one highlight: a big serif number, or a short phrase */
+.journey__highlight {
+  grid-column: 1 / -1; /* full card width, under the pill too */
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.journey__highlight strong {
+  font-family: var(--font-headline);
+  font-weight: normal;
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-right: 0.3rem;
+}
+
+/* "See details +" pill — says plainly that the card opens */
+.journey__toggle {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+/* Plus sign drawn in CSS; its vertical bar disappears when open (= minus) */
+.journey__toggle::after {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+  transition: background-size 0.3s var(--ease);
+}
+.journey__card[open] .journey__toggle::after {
+  background-size: 100% 1.5px, 1.5px 0;
+}
+.journey__card summary:hover .journey__toggle,
+.journey__card[open] .journey__toggle {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--brown);
+}
+.journey__toggle .when-open,
+.journey__card[open] .journey__toggle .when-closed {
+  display: none;
+}
+.journey__card[open] .journey__toggle .when-open {
+  display: inline;
+}
+
+/* What's inside once opened */
+.journey__list {
+  margin: 0 1.4rem;
+  padding: 1rem 0 1.2rem 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.journey__list li {
   margin-bottom: 0.4rem;
+  line-height: 1.6;
 }
+.journey__card[open] .journey__list {
+  animation: open-entry 0.45s var(--ease);
+}
+.journey__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: -0.4rem 1.4rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.journey__link svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* Skill filter: matches stay bright, the rest fade back */
+.journey.is-filtering .journey__item:not(.is-match) .journey__card,
+.journey.is-filtering .journey__item:not(.is-match) .journey__node {
+  opacity: 0.3;
+}
+
+/* Label row above the chips, with the Open all / Close all button */
+.skill-filter__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.skill-filter__top .skill-filter__label {
+  margin: 0;
+}
+.journey-toggle-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  cursor: pointer;
+}
+.journey-toggle-all svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+.journey-toggle-all:hover,
+.journey-toggle-all:focus-visible {
+  color: var(--brown);
+  border-color: var(--lavender);
+}
+
+/* ---------- 11d. EDUCATION PAGE ----------
+   Number strip, award tiles, and the FSU card. Icons only on the
+   two section headings, to keep the page calm. */
+
+/* Small uppercase heading with a rule under it (and one small icon) */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 4rem 0 1.75rem;
+  padding-bottom: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+.section-label svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Header: everything on the left, framed photo on the right */
+.edu-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(14rem, 24vw, 19rem);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+/* Key numbers: big serif value, small label underneath */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 1.5rem clamp(1.5rem, 4vw, 3.5rem);
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stat-strip li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.stat-strip strong {
+  white-space: nowrap; /* keeps "May 2028" on one line */
+  font-family: var(--font-headline);
+  font-weight: normal;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1;
+}
+.stat-strip span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Road to graduation bar: lavender fill + a dot for "you are here".
+   --progress is set on the track (by JS, with a fallback in the HTML).
+   The fill grows in when the bar scrolls into view. */
+.grad-progress {
+  max-width: 46rem;
+  margin: 2.75rem 0 0;
+}
+.grad-progress__ends {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.grad-progress__track {
+  position: relative;
+  height: 6px;
+  background: var(--line);
+  border-radius: 999px;
+}
+.grad-progress__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress);
+  background: var(--lavender);
+  border-radius: inherit;
+  transition: width 1.6s var(--ease) 0.3s;
+}
+.grad-progress__dot {
+  position: absolute;
+  top: 50%;
+  left: var(--progress);
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--brown);
+  border: 3px solid var(--page);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--lavender);
+  transform: translate(-50%, -50%);
+  transition: left 1.6s var(--ease) 0.3s;
+}
+/* Before it's on screen, start empty so it can grow in */
+.js .grad-progress:not(.is-visible) .grad-progress__fill { width: 0; }
+.js .grad-progress:not(.is-visible) .grad-progress__dot  { left: 0; }
+
+.grad-progress__label {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+.grad-progress__label strong {
+  font-family: var(--font-headline);
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+/* Award tiles */
+.award-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(11.5rem, 100%), 1fr)); /* all 5 in one row on desktop */
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.award-tiles li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--lavender);
+  border-radius: 10px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s ease;
+}
+.award-tiles li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -16px rgba(100, 65, 58, 0.35);
+}
+.award-tiles__name {
+  font-family: var(--font-headline);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.award-tiles__meta {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* FSU card: degree info on the left, tag groups on the right */
+.school-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--lavender);
+  border-radius: 10px;
+}
+.school-feature__name {
+  margin: 0.2rem 0 0.6rem;
+  font-family: var(--font-headline);
+  font-weight: normal;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.1;
+}
+.school-feature__degree {
+  margin: 0 0 0.3rem;
+  font-weight: 600;
+}
+.school-feature .journey__place {
+  display: block;
+  margin: 0;
+}
+.school-feature__note {
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  line-height: 1.7;
+}
+.school-feature__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Labelled groups of tags (FSU card) */
+.school-details__label {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.school-details__label:first-child {
+  margin-top: 0;
+}
+/* Small rounded labels, like the skill chips but not clickable */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tags li {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  background: rgba(200, 171, 209, 0.25);
+  border-radius: 999px;
+}
+
 
 /* Project entry: screenshot and link buttons under the bullet list */
 /* Short intro line under an inner page's headline */
@@ -1157,24 +1550,24 @@ p {
 }
 
 
-/* ---------- 12. CONTACT (chat bubbles) / FOOTER ---------- */
-/* Chat bubbles on the Contact page.
-   "them" = the visitor (right, lavender); "me" = Mariana (left, cream).
+/* ---------- 12. CONTACT (message window) / FOOTER ---------- */
+/* Chat bubbles on the Contact page, inside a message window.
+   "them" = the visitor (right, lavender); "me" = Mariana (left, white).
    With JS, .chat--animate hides the bubbles until main.js plays them in;
    they keep their space so the page doesn't jump. */
 .chat {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  max-width: 30rem;
-  margin: 0 0 2.5rem;
-  padding: 0;
+  margin: 0;
+  padding: 1.1rem 1.4rem 0.9rem;
   list-style: none;
 }
 
 .bubble {
   position: relative;
   max-width: 85%;
+  overflow-wrap: anywhere; /* lets the long email address wrap on phones */
   padding: 0.7rem 1.1rem;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -1193,7 +1586,7 @@ p {
 
 .bubble--me {
   align-self: flex-start;
-  background: var(--cream);
+  background: #fff;
   border-bottom-left-radius: 0.3rem;
   transform-origin: bottom left;
 }
@@ -1231,7 +1624,7 @@ p {
     radial-gradient(circle, var(--brown) 0.18rem, transparent 0.2rem) 0.95rem 50% / 0.6rem 0.6rem no-repeat,
     radial-gradient(circle, var(--brown) 0.18rem, transparent 0.2rem) 1.55rem 50% / 0.6rem 0.6rem no-repeat,
     radial-gradient(circle, var(--brown) 0.18rem, transparent 0.2rem) 2.15rem 50% / 0.6rem 0.6rem no-repeat,
-    var(--cream);
+    #fff;
   opacity: 1;
   animation: typing-pulse 0.9s ease-in-out infinite;
 }
@@ -1248,6 +1641,242 @@ p {
   50% { opacity: 0.55; }
 }
 
+
+/* Contact layout: title + intro line left, message window right */
+.contact-split {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start; /* text sits at the top, beside the window */
+}
+.contact-split .split__text {
+  padding-top: 1rem;
+}
+.contact-intro {
+  max-width: 24rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--font-headline);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  line-height: 1.35;
+  color: var(--cream);
+}
+.contact-more {
+  max-width: 29rem;
+  margin: 1.25rem 0 0;
+  line-height: 1.7;
+  color: var(--cream);
+  opacity: 0.85;
+}
+.contact-more strong {
+  color: var(--lavender);
+  font-weight: 600;
+}
+.contact-label {
+  margin: 1.75rem 0 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.6;
+}
+/* Tags on the brown background */
+.tags--dark li {
+  color: var(--cream);
+  background: rgba(200, 171, 209, 0.18);
+  border: 1px solid rgba(200, 171, 209, 0.35);
+}
+
+/* Message window around the chat, styled like the photo frames:
+   dark outline, cream title bar with three dots */
+.messenger {
+  --frame: #3B2630;
+  max-width: 36rem;
+  margin: 0;
+  overflow: hidden;
+  background: var(--cream);
+  border: 3px solid var(--frame);
+  border-radius: 14px;
+  box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.55);
+}
+.messenger__bar {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 3px solid var(--frame);
+}
+.messenger__bar span {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--lavender);
+  border: 2px solid var(--frame);
+  border-radius: 50%;
+}
+
+/* Header: name and status */
+.messenger__header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--brown);
+}
+.messenger__name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.messenger__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.1rem 0 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.messenger__status::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--lavender);
+  border-radius: 50%;
+}
+
+/* "Today" at the top and "Read" under the last message */
+.chat__meta {
+  align-self: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown);
+  opacity: 0.5;
+}
+.chat__read {
+  align-self: flex-start;
+  margin-top: -0.2rem;
+  padding-left: 0.4rem;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  transition: opacity 0.4s ease;
+}
+/* While the chat plays in, "Read" waits until the last message */
+.chat--animate .chat__read {
+  opacity: 0;
+}
+.chat--animate.is-done .chat__read {
+  opacity: 0.5;
+}
+
+/* Bubble tails, like a messaging app */
+.bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 14px;
+  background: inherit;
+}
+.bubble--them::before {
+  right: -7px;
+  clip-path: path("M0 0 Q1 13 12 14 L0 14 Z");
+}
+.bubble--me::before {
+  left: -7px;
+  clip-path: path("M12 0 Q11 13 0 14 L12 14 Z");
+}
+
+/* Message bar at the bottom of the window: looks like a chat app's
+   "type a message" box, with a round send button. It's one big button
+   that copies the email address. */
+.quick-replies {
+  position: relative;
+  padding: 0.9rem 1.2rem 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.compose {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.45rem 0.45rem 0.45rem 1.1rem;
+  font: inherit;
+  text-align: left;
+  color: var(--brown);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.compose:hover,
+.compose:focus-visible {
+  border-color: var(--lavender);
+  box-shadow: 0 0 0 3px rgba(200, 171, 209, 0.35);
+}
+.compose:focus-visible {
+  outline: none;
+}
+/* Blinking text cursor that follows the typed text */
+.compose__caret {
+  margin-left: -0.45rem; /* sits right after the last letter */
+  width: 1.5px;
+  height: 1.1em;
+  background: var(--brown);
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+.compose__text {
+  min-height: 1.35em; /* keeps the bar's height while the text is empty */
+  font-size: 0.9rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.compose:hover .compose__text,
+.compose:focus-visible .compose__text {
+  opacity: 1;
+}
+.compose__send {
+  margin-left: auto; /* pushed to the right end of the bar */
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  color: var(--brown);
+  background: var(--lavender);
+  border-radius: 50%;
+  transition: transform 0.3s var(--ease);
+}
+.compose__send svg {
+  width: 1rem;
+  height: 1rem;
+}
+.compose:hover .compose__send {
+  transform: translateY(-2px);
+}
+
+/* Little "Copied!" pop-up above the send button */
+.quick-replies__toast {
+  position: absolute;
+  right: 1.2rem;
+  top: -1rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cream);
+  background: var(--brown);
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.quick-replies__toast.is-visible {
+  opacity: 1;
+  transform: none;
+}
 
 /* Slim copyright bar at the bottom of every page */
 .site-footer {
@@ -1352,8 +1981,7 @@ p {
 
   /* Stack all two-column layouts */
   .split,
-  .timeline-grid,
-  .timeline--wide,
+  .school-feature,
   .project {
     grid-template-columns: 1fr;
   }
@@ -1365,6 +1993,71 @@ p {
 
   .hero {
     min-height: auto;
+  }
+
+  /* Journey: the lanes stack (Work, then Leadership). The Work lane
+     flips so its line and icons are on the left like Leadership's. */
+  .journey {
+    --node: 2.5rem;
+    --gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .journey__lane-title {
+    justify-content: flex-start;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .journey__lane--work .journey__stops::before {
+    right: auto;
+    left: calc(var(--node) / 2 - 1px);
+  }
+  .journey__item--work {
+    grid-template-columns: var(--node) 1fr;
+  }
+  .journey__item--work .journey__node { grid-column: 1; }
+  .journey__item--work .journey__date,
+  .journey__item--work .journey__card { grid-column: 2; }
+  .journey__item--work .journey__date { text-align: left; }
+  .journey__node {
+    margin-top: 1.6rem;
+  }
+  .journey__node svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+  /* Education header: photo goes under the text */
+  .edu-intro {
+    grid-template-columns: 1fr;
+  }
+  .edu-intro__photo {
+    max-width: 18rem;
+  }
+
+  /* Graduation bar: just the dates on phones */
+  .grad-progress__desc {
+    display: none;
+  }
+
+  /* Education numbers: 2 x 2 */
+  .stat-strip {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  /* Pill moves under the text so the title gets the full width */
+  .journey__card summary {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.1rem;
+  }
+  .journey__toggle {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.9rem;
+  }
+  .journey__list {
+    margin: 0 1.1rem;
+  }
+  .journey__link {
+    margin: -0.4rem 1.1rem 1.1rem;
   }
 
 }

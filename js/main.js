@@ -8,8 +8,9 @@
    6. Typing effect in the hero label
    7. Skill chips that highlight experience entries
    8. Flip cards on the Skills page
-   9. Chat bubbles on the Contact page
+   9. Chat bubbles + copy-email pill on the Contact page
    10. Slide viewer on the Projects page
+   11. Road-to-graduation bar on the Education page
    ========================================================== */
 
 
@@ -134,15 +135,19 @@ if (typed && !reduceMotion) {
 }
 
 
-/* ---------- 7. SKILL CHIPS ----------
-   Clicking a chip opens and highlights every entry whose
-   data-skills includes that skill, and fades the rest.
-   Clicking the active chip again clears the filter. */
+/* ---------- 7. SKILL CHIPS + OPEN ALL ----------
+   Experience cards start closed (the first one starts open, to show
+   that they expand). Clicking a chip opens and
+   highlights every stop whose data-skills includes that skill,
+   and fades the rest. Clicking the active chip again clears the
+   filter and closes the cards. "Open all" opens or closes every card. */
 
 const chips = document.querySelectorAll('.chip');
-const entries = document.querySelectorAll('.timeline__item');
-const timelineGrid = document.querySelector('.timeline-grid');
+const journey = document.querySelector('.journey');
+const stops = document.querySelectorAll('.journey__item');
+const cards = document.querySelectorAll('.journey__card');
 const filterStatus = document.querySelector('.skill-filter__status');
+const toggleAll = document.querySelector('.journey-toggle-all');
 
 function setFilter(skill) {
   chips.forEach((chip) => {
@@ -150,19 +155,17 @@ function setFilter(skill) {
   });
 
   let matches = 0;
-  entries.forEach((entry) => {
-    const isMatch = skill !== null && entry.dataset.skills.split(' ').includes(skill);
-    entry.classList.toggle('is-match', isMatch);
-    // Entries start open. While filtering, only the matches stay open;
-    // clearing the filter opens everything again.
-    entry.open = skill === null || isMatch;
+  stops.forEach((stop) => {
+    const isMatch = skill !== null && stop.dataset.skills.split(' ').includes(skill);
+    stop.classList.toggle('is-match', isMatch);
+    stop.querySelector('.journey__card').open = isMatch;
     if (isMatch) matches++;
   });
 
-  timelineGrid.classList.toggle('is-filtering', skill !== null);
+  journey.classList.toggle('is-filtering', skill !== null);
   filterStatus.textContent = skill === null
     ? ''
-    : `${matches} ${matches === 1 ? 'entry' : 'entries'} highlighted — click the chip again to clear`;
+    : `${matches} ${matches === 1 ? 'role' : 'roles'} highlighted — click the chip again to clear`;
 }
 
 chips.forEach((chip) => {
@@ -171,6 +174,23 @@ chips.forEach((chip) => {
     setFilter(isActive ? null : chip.dataset.skill);
   });
 });
+
+// Keep the button's label in sync: "Close all" only when every card is open
+function updateToggleAll() {
+  const allOpen = [...cards].every((card) => card.open);
+  toggleAll.setAttribute('aria-pressed', allOpen);
+  toggleAll.querySelector('span').textContent = allOpen ? 'Close all' : 'Open all';
+}
+
+if (toggleAll) {
+  toggleAll.addEventListener('click', () => {
+    const openThem = toggleAll.getAttribute('aria-pressed') !== 'true';
+    setFilter(null);
+    cards.forEach((card) => { card.open = openThem; });
+    updateToggleAll();
+  });
+  cards.forEach((card) => card.addEventListener('toggle', updateToggleAll));
+}
 
 
 /* ---------- 8. FLIP CARDS ----------
@@ -214,6 +234,11 @@ if (chat && !reduceMotion) {
 
   chat.classList.add('chat--animate');
 
+  // The message bar's text types itself out once the chat has played
+  const composeText = document.querySelector('.compose__text');
+  const message = composeText ? composeText.textContent : '';
+  if (composeText) composeText.textContent = '';
+
   async function playChat() {
     await wait(500);
     for (const bubble of bubbles) {
@@ -225,9 +250,43 @@ if (chat && !reduceMotion) {
       bubble.classList.add('is-shown');
       await wait(bubble.classList.contains('bubble--me') ? 600 : 700);
     }
+    chat.classList.add('is-done'); // shows "Read" under the last message
+
+    if (composeText) {
+      await wait(600);
+      for (const letter of message) {
+        composeText.textContent += letter;
+        await wait(70);
+      }
+    }
   }
 
   playChat();
+}
+
+// "Copy my email!" pill: copies the address and shows a small "Copied!".
+// If the browser blocks copying, the pop-up shows the address instead.
+const copyBtn = document.querySelector('[data-copy]');
+
+if (copyBtn) {
+  const toast = document.querySelector('.quick-replies__toast');
+  let hideTimer;
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      // Give up after a second if the browser never answers
+      await Promise.race([
+        navigator.clipboard.writeText(copyBtn.dataset.copy),
+        new Promise((_, reject) => setTimeout(reject, 1000)),
+      ]);
+      toast.textContent = 'Copied!';
+    } catch {
+      toast.textContent = copyBtn.dataset.copy;
+    }
+    toast.classList.add('is-visible');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => toast.classList.remove('is-visible'), 2000);
+  });
 }
 
 
@@ -265,3 +324,23 @@ document.querySelectorAll('[data-slides]').forEach((viewer) => {
     startX = null;
   });
 });
+
+
+/* ---------- 11. ROAD-TO-GRADUATION BAR ----------
+   Works out how much of the time between the start and end dates
+   (data-start / data-end) has passed, and moves the bar to match.
+   It's based on time, not credits, so the label says "of the way". */
+
+const gradBar = document.querySelector('.grad-progress');
+
+if (gradBar) {
+  const start = new Date(gradBar.dataset.start);
+  const end = new Date(gradBar.dataset.end);
+  const share = (Date.now() - start) / (end - start);
+  const pct = Math.round(Math.min(Math.max(share, 0), 1) * 100);
+
+  const track = gradBar.querySelector('.grad-progress__track');
+  track.style.setProperty('--progress', pct + '%');
+  track.setAttribute('aria-valuenow', pct);
+  gradBar.querySelector('.grad-progress__pct').textContent = pct + '%';
+}
