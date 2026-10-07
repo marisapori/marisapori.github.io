@@ -97,23 +97,38 @@
         </article>
 
         <article class="project reveal">
-          <!-- Slide viewer: arrows, keyboard arrows or swipe to flip through
-               the presentation (js/main.js section 10). Without JS only
-               slide 1 shows, and "View presentation" opens the full PDF. -->
-          <div class="project-shot slides" data-slides tabindex="0" aria-roledescription="carousel" aria-label="Presentation slides">
-            <div class="slides__viewport">
-              <img src="images/smm-slides/slide-1.webp" width="1000" height="562" alt="Slide 1 of 7. Title slide: Social Media Marketing, LIS 4480 final project presentation by Mariana Neri Sapori, Julia Ledo and Trentt Melton">
-              <img src="images/smm-slides/slide-2.webp" width="1000" height="562" alt="Slide 2 of 7. Project goals slide beside the Instagram profiles of Nole Your Campus, Get Involved at FSU CCI and Align FSU with their starting follower counts" loading="lazy" hidden>
-              <img src="images/smm-slides/slide-3.webp" width="1000" height="562" alt="Slide 3 of 7. Social media performance slide: goals, results and metrics for each of the three accounts" loading="lazy" hidden>
-              <img src="images/smm-slides/slide-4.webp" width="1000" height="562" alt="Slide 4 of 7. Team performance slide listing each co-leader's role and contributions" loading="lazy" hidden>
-              <img src="images/smm-slides/slide-5.webp" width="1000" height="562" alt="Slide 5 of 7. Team performance slide: what the team did well, how it could improve, and its self-grade" loading="lazy" hidden>
-              <img src="images/smm-slides/slide-6.webp" width="1000" height="562" alt="Slide 6 of 7. Results to share slide: leadership traits and what the team would do differently, with a photo from a CCI event" loading="lazy" hidden>
-              <img src="images/smm-slides/slide-7.webp" width="1000" height="562" alt="Slide 7 of 7. Thank you slide from the three co-leads" loading="lazy" hidden>
+          <div class="project__media">
+            <!-- Slide viewer: arrows, keyboard arrows or swipe to flip through
+                 the presentation (js/main.js section 10). Without JS only
+                 slide 1 shows, and "View presentation" opens the full PDF. -->
+            <div class="project-shot slides" data-slides tabindex="0" aria-roledescription="carousel" aria-label="Presentation slides">
+              <div class="slides__viewport">
+                <img src="images/smm-slides/slide-1.webp" width="1000" height="562" alt="Slide 1 of 7. Title slide: Social Media Marketing, LIS 4480 final project presentation by Mariana Neri Sapori, Julia Ledo and Trentt Melton">
+                <img src="images/smm-slides/slide-2.webp" width="1000" height="562" alt="Slide 2 of 7. Project goals slide beside the Instagram profiles of Nole Your Campus, Get Involved at FSU CCI and Align FSU with their starting follower counts" loading="lazy" hidden>
+                <img src="images/smm-slides/slide-3.webp" width="1000" height="562" alt="Slide 3 of 7. Social media performance slide: goals, results and metrics for each of the three accounts" loading="lazy" hidden>
+                <img src="images/smm-slides/slide-4.webp" width="1000" height="562" alt="Slide 4 of 7. Team performance slide listing each co-leader's role and contributions" loading="lazy" hidden>
+                <img src="images/smm-slides/slide-5.webp" width="1000" height="562" alt="Slide 5 of 7. Team performance slide: what the team did well, how it could improve, and its self-grade" loading="lazy" hidden>
+                <img src="images/smm-slides/slide-6.webp" width="1000" height="562" alt="Slide 6 of 7. Results to share slide: leadership traits and what the team would do differently, with a photo from a CCI event" loading="lazy" hidden>
+                <img src="images/smm-slides/slide-7.webp" width="1000" height="562" alt="Slide 7 of 7. Thank you slide from the three co-leads" loading="lazy" hidden>
+              </div>
+              <div class="slides__controls">
+                <button class="slides__btn" data-slides-prev aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+                <span class="slides__count" aria-live="polite">1 / 7</span>
+                <button class="slides__btn" data-slides-next aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+              </div>
             </div>
-            <div class="slides__controls">
-              <button class="slides__btn" data-slides-prev aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
-              <span class="slides__count" aria-live="polite">1 / 7</span>
-              <button class="slides__btn" data-slides-next aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+
+            <!-- Real posts from the account (cropped to the graphic only) -->
+            <h3 class="project-label">Posts I published</h3>
+            <div class="post-gallery">
+              <a href="images/smm-posts/game-night.webp" target="_blank" rel="noopener">
+                <img src="images/smm-posts/game-night.webp" width="603" height="505" loading="lazy"
+                     alt="Instagram post for a CCI Game Night on Wednesday, April 1, 6 to 8 PM in the iHub Pitch Room, sponsored by SHI International Corp.">
+              </a>
+              <a href="images/smm-posts/relay-for-life.webp" target="_blank" rel="noopener">
+                <img src="images/smm-posts/relay-for-life.webp" width="603" height="781" loading="lazy"
+                     alt="Instagram post inviting students to join the CCI Relay for Life team, with an interest meeting on February 5 at 5 PM in iHub 125">
+              </a>
             </div>
           </div>
 
@@ -123,6 +138,13 @@
             <ul class="project__tags" aria-label="Skills used">
               <li>Instagram</li><li>Content Calendar</li><li>Analytics</li><li>Team Leadership</li>
             </ul>
+            <p class="project__note">
+              Accounts:
+              <a href="https://www.instagram.com/getinvolvedcci_fsu/" target="_blank" rel="noopener">@getinvolvedcci_fsu</a> &middot;
+              <a href="https://www.instagram.com/alignfsu/" target="_blank" rel="noopener">@alignfsu</a> &middot;
+              <a href="https://www.instagram.com/noleyourcampus/" target="_blank" rel="noopener">@noleyourcampus</a><br>
+              Our team managed them from January 19 to April 18, 2026. They're now run by another class, so newer posts aren't ours.
+            </p>
 
             <h3 class="project-label">Goals &amp; scope</h3>
             <ul class="timeline__list">

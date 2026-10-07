@@ -1031,6 +1031,48 @@ p {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(100, 65, 58, 0.2);
 }
+/* Left column of a project: screenshot / slides, then any extra images */
+.project__media .project-label {
+  margin-top: 1.75rem;
+}
+.post-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.post-gallery a {
+  display: block;
+  padding: 0.4rem;
+  background: var(--lavender);
+  border-radius: 10px;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.post-gallery a:hover,
+.post-gallery a:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(100, 65, 58, 0.2);
+}
+.post-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Small note under a project's tags (e.g. when it ran) */
+.project__note {
+  margin: -0.5rem 0 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.85;
+}
+.project__note a {
+  font-style: normal;
+  font-weight: 600;
+}
+
 /* Slide viewer: same lavender mat, but it isn't a link, so no lift */
 .slides:hover {
   transform: none;

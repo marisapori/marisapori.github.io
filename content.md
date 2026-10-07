@@ -36,7 +36,8 @@ Where each piece of text lives, so it's quick to find and change.
   tool tags, **Goals & scope**, **My role**, link buttons
 - **CCI Course-to-Career Skill Gap Dashboard** (`images/skill-gap-dashboard.webp`)
 - **IT Leadership Social Media Marketing** (slide viewer: `images/smm-slides/slide-1..7.webp`,
-  full PDF: `IT-Leadership-Social-Media-Marketing.pdf`)
+  full PDF: `IT-Leadership-Social-Media-Marketing.pdf`, posts: `images/smm-posts/`,
+  account links + "managed Jan 19 – Apr 18, 2026" note under the tags)
 
 ## Contact — `contact.html`
 - **Chat bubbles**: `.chat` — `bubble--them` = visitor, `bubble--me` = Mariana
@@ -48,3 +49,4 @@ Where each piece of text lives, so it's quick to find and change.
 - `contact.webp` — framed Connecting Girls to STEM photo (Contact)
 - `skill-gap-dashboard.webp` — dashboard screenshot (Projects)
 - `smm-slides/` — the 7 LIS 4480 presentation slides for the slide viewer (Projects)
+- `smm-posts/` — Instagram posts published on @getinvolvedcci_fsu, cropped to the graphic (Projects)
