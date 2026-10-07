@@ -49,4 +49,5 @@ Where each piece of text lives, so it's quick to find and change.
 - `contact.webp` — framed Connecting Girls to STEM photo (Contact)
 - `skill-gap-dashboard.webp` — dashboard screenshot (Projects)
 - `smm-slides/` — the 7 LIS 4480 presentation slides for the slide viewer (Projects)
-- `smm-posts/` — Instagram posts published on @getinvolvedcci_fsu, cropped to the graphic (Projects)
+- `smm-posts/` — phone screenshots of posts on @getinvolvedcci_fsu: status bar cropped,
+  "Liked by" usernames blurred; shown in CSS phone frames (Projects)

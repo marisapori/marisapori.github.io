@@ -1038,26 +1038,42 @@ p {
 .post-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: clamp(1rem, 3vw, 2rem);
   align-items: start;
+  max-width: 34rem;
 }
-.post-gallery a {
+
+/* Phone frame: dark rounded bezel with a small pill "island" on top */
+.phone {
+  position: relative;
   display: block;
-  padding: 0.4rem;
-  background: var(--lavender);
-  border-radius: 10px;
+  padding: 1.6rem 0.55rem 0.9rem;
+  background: #1c1c1e;
+  border-radius: 2.2rem;
+  box-shadow: 0 0 0 2px #3a3a3c, 0 14px 32px rgba(100, 65, 58, 0.22);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.post-gallery a:hover,
-.post-gallery a:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(100, 65, 58, 0.2);
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 28%;
+  height: 0.55rem;
+  background: #000;
+  border-radius: 999px;
+  transform: translateX(-50%);
 }
-.post-gallery img {
+.phone:hover,
+.phone:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 2px #3a3a3c, 0 22px 44px rgba(100, 65, 58, 0.28);
+}
+.phone img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 1.5rem;
 }
 
 /* Small note under a project's tags (e.g. when it ran) */
